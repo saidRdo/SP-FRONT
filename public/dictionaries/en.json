@@ -1,0 +1,37 @@
+{
+    "lang":"en",
+    "LoginPage": {
+        "LoginTitle": "Please enter your user information.",
+        "LoginEmailInput": "Email",
+        "LoginPasswordInput": "Password",
+        "LoginButton": "Log in",
+        "ShowPassword": "Show password",
+        "ForgotPassword": "Forgot your password ?",
+        "PasswordErrors": {
+            "RequiredField": "This field is required",
+            "InvalidPassword": "Your password is incorrect; it must be at least 8 characters long"
+        },
+        "EmailErrors": {
+            "RequiredField": "This field is required",
+            "InvalidEmail": "Invalid email address"
+        },
+        "BadCredentials": "Email or password is invalid."
+    },
+    "AppName": "SMART PARKING",
+    "ProfileMenu": {
+        "Profile": "Profile",
+        "Settings": "Settings",
+        "Logout": "Log out"
+    },
+    "ProfileSection": {
+        "Username": "Username :",
+        "email": "Email :",
+        "Adresse" : "Address :",
+        "Phone": "Phone :",
+        "UserLang": "Language :"
+    },
+    "SideBar": {
+        "Home": "Home"
+
+    }
+}

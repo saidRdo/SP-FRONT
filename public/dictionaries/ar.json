@@ -1,0 +1,40 @@
+{
+    "lang":"ar",
+    "LoginPage": {
+        "LoginTitle": " يرجى إدخال معلومات المستخدم الخاصة بك.",
+        "LoginEmailInput": "البريد الإلكتروني",
+        "LoginPasswordInput": "كلمة المرور",
+        "ShowPassword": "عرض كلمة المرور",
+        "LoginButton": "تسجيل الدخول",
+        "ForgotPassword": "هل نسيت كلمة المرور؟",
+        "PasswordErrors": {
+            "RequiredField": "هذا الحقل مطلوب",
+            "InvalidPassword": "كلمة المرور غير صحيحة؛ يجب أن تكون على الأقل 8 أحرف"
+        },
+        "EmailErrors": {
+            "RequiredField": "هذا الحقل مطلوب",
+            "InvalidEmail": "عنوان البريد الإلكتروني غير صحيح"
+        },
+        "BadCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة ."
+    },
+    "IndexPage": {
+        "AppName": "SMART PARKING",
+        "AsideBar": {
+            "Home": "الصفحة الرئيسية",
+            "Users": "المستخدمين"
+        },
+        "ProfileMenu": {
+            "Profile": "الملف الشخصي",
+            "Settings": "الإعدادات",
+            "Logout": "تسجيل الخروج"
+        }
+    },
+    "ProfileSection": {
+        "Username": "اسم المستخدم :",
+        "email": "البريد الإلكتروني :",
+        "Adresse" : "العنوان :",
+        "Phone": "الهاتف :",
+        "UserLang": "اللغة :"
+    }
+
+}
