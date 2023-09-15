@@ -138,3 +138,20 @@
     font-weight: 500;
   }
 }
+// Mixins for RTL and LTR
+@mixin rtl-text-align($direction: right) {
+  text-align: $direction;
+}
+
+@mixin ltr-text-align($direction: left) {
+  text-align: $direction;
+}
+
+// Use the mixins to apply the correct styles
+.rtl {
+  @include rtl-text-align();
+}
+
+.ltr {
+  @include ltr-text-align();
+}

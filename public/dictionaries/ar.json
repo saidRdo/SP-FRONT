@@ -17,17 +17,14 @@
         },
         "BadCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة ."
     },
-    "IndexPage": {
-        "AppName": "SMART PARKING",
-        "AsideBar": {
-            "Home": "الصفحة الرئيسية",
-            "Users": "المستخدمين"
-        },
-        "ProfileMenu": {
-            "Profile": "الملف الشخصي",
-            "Settings": "الإعدادات",
-            "Logout": "تسجيل الخروج"
-        }
+    "AppName": "SMART PARKING",
+    "indexPage":{
+        "Title":  "لوحة القيادة"
+    },
+    "ProfileMenu": {
+        "Profile": "الملف الشخصي",
+        "Settings": "الإعدادات",
+        "Logout": "تسجيل الخروج"
     },
     "ProfileSection": {
         "Username": "اسم المستخدم :",
@@ -35,6 +32,31 @@
         "Adresse" : "العنوان :",
         "Phone": "الهاتف :",
         "UserLang": "اللغة :"
+    },
+    "SideBar": {
+        "Home": "الصفحة الرئيسية",
+        "USEROLE": {
+            "Title": "المستخدمين والأدوار",
+            "Users": {
+                "Title": "المستخدمين",
+                "ListUsers": "المستخدمين"
+            },
+            "Roles": {
+                "Title": "الأدوار",
+                "ListRoles": "الدور"
+            }
+        },
+        "PARKINGTEAM": {
+            "Title": "مواقف السيارات والفرق",
+            "Parking": {
+                "Title": "مواقف السيارات",
+                "ListParking": "مواقف السيارات"
+            },
+            "TEAM": {
+                "Title": "الفرق",
+                "ListTeams": "الفرق"
+            }
+        }
     }
 
 }

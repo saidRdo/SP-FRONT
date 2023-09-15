@@ -18,6 +18,9 @@
         "BadCredentials": "Email or password is invalid."
     },
     "AppName": "SMART PARKING",
+    "indexPage":{
+        "Title":  "Dashboard"
+    },
     "ProfileMenu": {
         "Profile": "Profile",
         "Settings": "Settings",
@@ -31,7 +34,28 @@
         "UserLang": "Language :"
     },
     "SideBar": {
-        "Home": "Home"
-
+        "Home": "Home",
+        "USEROLE": {
+            "Title": "USERS & ROLES",
+            "Users": {
+                "Title": "Users",
+                "ListUsers": "Users"
+            },
+            "Roles": {
+                "Title": "Roles",
+                "ListRoles": "Roles"
+            }
+        },
+        "PARKINGTEAM": {
+            "Title": "PARKING & TEAMS",
+            "Parking": {
+                "Title": "Parking",
+                "ListParking": "Parkings"
+            },
+            "TEAM": {
+                "Title": "Teams",
+                "ListTeams": "Teams"
+            }
+        }
     }
 }

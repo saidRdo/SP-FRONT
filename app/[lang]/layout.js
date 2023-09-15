@@ -12,7 +12,7 @@ export default async function Root({ children, params }) {
     return (
         <DictionaryProvider dictionary={dictionary} lang={params.lang}>
             <html lang={params.lang}>
-                <body>
+                <body dir={params.lang== 'ar' ? 'rtl' : 'ltr'}>
                 <Providers>
                     {children}
                 </Providers>

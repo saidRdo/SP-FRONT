@@ -19,10 +19,14 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
 // import routes file
-import { DashboardMenu } from '@/NavRoutes/DashboardRoutes';
+import DashboardMenu  from '@/NavRoutes/DashboardRoutes';
+import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
 
 const NavbarVertical = (props) => {
 	const location = usePathname ()
+	const Menu=DashboardMenu()
+	const dictionary = useDictionary();
+
 	const CustomToggle = ({ children, eventKey, icon }) => {
 		const { activeEventKey } = useContext(AccordionContext);
 		const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -38,8 +42,9 @@ const NavbarVertical = (props) => {
 					data-bs-toggle="collapse"
 					data-bs-target="#navDashboard"
 					aria-expanded={isCurrentEventKey ? true : false}
+					lang={dictionary?.lang=="ar"?"rtl":"ltr"}
 					aria-controls="navDashboard">
-					{icon ? <i className={`nav-icon fe fe-${icon} me-2`}></i> : ''}{' '}
+					{icon && typeof icon == String ? <i className={`nav-icon fe fe-${icon} me-2`}></i> : icon}{' '}
 					{children}
 				</Link>
 			</li>
@@ -58,6 +63,7 @@ const NavbarVertical = (props) => {
 				onClick={decoratedOnClick}
 				data-bs-toggle="collapse"
 				data-bs-target="#navDashboard"
+				lang={dictionary?.lang=="ar"?"rtl":"ltr"}
 				aria-expanded={isCurrentEventKey ? true : false}
 				aria-controls="navDashboard">
 				{children}
@@ -108,7 +114,7 @@ const NavbarVertical = (props) => {
 				<hr style={{marginTop:"-10px"}}/>
 				{/* Dashboard Menu */}
 				<Accordion defaultActiveKey="0" as="ul" className="navbar-nav flex-column">
-					{DashboardMenu.map(function (menu, index) {
+					{Menu.map(function (menu, index) {
 						if (menu.grouptitle) {
 							return (
 								<Card bsPrefix="nav-item" key={index}>
@@ -123,10 +129,10 @@ const NavbarVertical = (props) => {
 									<Fragment key={index}>
 										{/* main menu / root menu level / root items */}
 										<CustomToggle eventKey={index} icon={menu.icon}>
-											{menu.title}
+											{" "}{menu.title}{" "}
 											{menu.badge ? (
 												<Badge className="ms-1" bg={menu.badgecolor ? menu.badgecolor : 'primary'}>
-													{menu.badge}
+													{" "}{menu.badge}{" "}
 												</Badge>
 											) : ('')}
 										</CustomToggle>
@@ -139,12 +145,12 @@ const NavbarVertical = (props) => {
 																{/* first level menu started  */}
 																<Accordion defaultActiveKey="0" className="navbar-nav flex-column">
 																	<CustomToggleLevel2 eventKey={0}>
-																		{menuLevel1Item.title}
+																		{" "}{menuLevel1Item.title}{" "}
 																		{menuLevel1Item.badge ? (
 																			<Badge className="ms-1" bg={
 																					menuLevel1Item.badgecolor ? menuLevel1Item.badgecolor : 'primary'
 																				}>
-																				{menuLevel1Item.badge}
+																				{" "}{menuLevel1Item.badge}{" "}
 																			</Badge>
 																		) : ('')}
 																	</CustomToggleLevel2>
@@ -158,12 +164,12 @@ const NavbarVertical = (props) => {
 																							{/* second level accordion menu started  */}
 																							<Accordion defaultActiveKey="0" className="navbar-nav flex-column">
 																								<CustomToggleLevel2 eventKey={0}>
-																									{menuLevel2Item.title}
+																									{" "}{menuLevel2Item.title}{" "}
 																									{menuLevel2Item.badge ? (
 																										<Badge className="ms-1" bg={
 																												menuLevel2Item.badgecolor ? menuLevel2Item.badgecolor : 'primary'
 																											}>
-																											{menuLevel2Item.badge}
+																											{" "}{menuLevel2Item.badge}{" "}
 																										</Badge>
 																									) : ('')}
 																								</CustomToggleLevel2>

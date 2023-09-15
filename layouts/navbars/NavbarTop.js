@@ -12,6 +12,7 @@ import QuickMenu from '@/layouts/QuickMenu';
 import dynamic from "next/dynamic";
 
 const NavbarTop = (props) => {
+
 	return (
 		<Navbar expanded="lg" className="navbar-classic navbar navbar-expand-lg">
 			<div className='d-flex justify-content-between w-100'>

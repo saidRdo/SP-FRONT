@@ -13,10 +13,14 @@ import { ActiveProjects, Teams,
     TasksPerformance
 } from "@/sub-components";
 import dynamic from "next/dynamic";
+import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
+import ProjectsStats from "@/data/dashboard/ProjectsStatsData";
 
 
 
 const Home = () => {
+    const dictionary = useDictionary();
+
     return (
         <Fragment>
             <div className="bg-primary pt-10 pb-21"></div>
@@ -27,24 +31,21 @@ const Home = () => {
                         <div>
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="mb-2 mb-lg-0">
-                                    <h3 className="mb-0  text-white">Projects</h3>
+                                    <h3 className="mb-0  text-white">{dictionary.indexPage.Title}</h3>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <Link href="#" className="btn btn-white">Create New Project</Link>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                     </Col>
-                        <Col xl={3} lg={6} md={12} xs={12} className="mt-6" >
-                            <StatRightTopIcon info={  {
-                                id:1,
-                                title : "Projects",
-                                value : 18,
-                                icon: <Briefcase size={18}/>,
-                                statInfo: '<span className="text-dark me-2">2</span> Completed'
-                            }} />
-                        </Col>
-
+                    {ProjectsStats.map((items,index)=> {
+                        return (
+                            <Col xl={3} lg={6} md={12} xs={12} className="mt-6" key={index}>
+                                <StatRightTopIcon info={items}/>
+                            </Col>
+                        );
+                    })}
                 </Row>
 
                 {/* Active Projects  */}

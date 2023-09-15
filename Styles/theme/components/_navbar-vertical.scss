@@ -72,12 +72,12 @@
           opacity: 1;
         }
       }
-      .nav-link[data-bs-toggle="collapse"]{
+      .nav-link[data-bs-toggle="collapse"][lang="ltr"]{
         position: relative;
         &:after {
           display: block;
           content: "";
-          background: url(../../../public/fonts/feather-icons/icons/chevron-down.svg);          
+          background: url(../../../public/fonts/feather-icons/icons/chevron-down.svg);
           font-family: Feather;
           margin-left: auto;
           transition: 0.5s ease;
@@ -89,8 +89,25 @@
           filter: brightness(0) invert(1);
           transform: scale(0.7);
         }
-
       }
+      .nav-link[data-bs-toggle="collapse"][lang="rtl"]{
+         position: relative;
+         &:after {
+           display: block;
+           content: "";
+           background: url(../../../public/fonts/feather-icons/icons/chevron-down.svg);
+           font-family: Feather;
+           margin-left: auto;
+           transition: 0.5s ease;
+           position: absolute;
+           right: 30vh;
+           height: 24px;
+           width: 24px;
+           -webkit-filter: brightness(0) invert(1);
+           filter: brightness(0) invert(1);
+           transform: scale(0.7);
+         }
+       }
 
 
     }
@@ -157,5 +174,22 @@
 
 
 
+  // Mixins for RTL and LTR
+  @mixin rtl-text-align($direction: right) {
+    text-align: $direction;
+  }
+
+  @mixin ltr-text-align($direction: left) {
+    text-align: $direction;
+  }
+
+  // Use the mixins to apply the correct styles
+  .rtl {
+    @include rtl-text-align();
+  }
+
+  .ltr {
+    @include ltr-text-align();
+  }
 
 }

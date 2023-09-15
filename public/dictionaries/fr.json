@@ -17,17 +17,14 @@
         },
         "BadCredentials": "L'email ou le mot de passe est incorrect."
     },
-    "IndexPage": {
-        "AppName": "SMART PARKING",
-        "AsideBar": {
-            "Home": "Accueil",
-            "Users": "Utilisateurs"
-        },
-        "ProfileMenu": {
-            "Profile": "Profil",
-            "Settings": "Paramètres",
-            "Logout": "Se déconnecter"
-        }
+    "AppName": "SMART PARKING",
+    "indexPage":{
+        "Title":  "Tableau de bord"
+    },
+    "ProfileMenu": {
+        "Profile": "Profil",
+        "Settings": "Paramètres",
+        "Logout": "Se déconnecter"
     },
     "ProfileSection": {
         "Username": "Nom d'utilisateur :",
@@ -35,5 +32,30 @@
         "Adresse" : "Adresse :",
         "Phone": "Téléphone :",
         "UserLang": "Langue :"
+    },
+    "SideBar": {
+        "Home": "Accueil",
+        "USEROLE": {
+            "Title": "UTILISATEURS ET RÔLES",
+            "Users": {
+                "Title": "Utilisateurs",
+                "ListUsers": "Utilisateurs"
+            },
+            "Roles": {
+                "Title": "Rôles",
+                "ListRoles": "Rôles"
+            }
+        },
+        "PARKINGTEAM": {
+            "Title": "STATIONNEMENT ET ÉQUIPES",
+            "Parking": {
+                "Title": "Stationnement",
+                "ListParking": "Stationnements"
+            },
+            "TEAM": {
+                "Title": "Équipes",
+                "ListTeams": "Équipes"
+            }
+        }
     }
 }
