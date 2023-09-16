@@ -57,6 +57,83 @@
                 "ListTeams": "الفرق"
             }
         }
+    },
+    "SettingsPage": {
+        "TitlePage": "الإعدادات",
+        "SaveChanges": "حفظ التغييرات",
+        "ComponentSettingGeneral": {
+            "Title": "إعدادات عامة",
+            "SubTitle": "إعدادات تكوين الملف الشخصي",
+            "Component": {
+                "title": "الإعدادات العامة",
+                "avatar": "الصورة الرمزية",
+                "ChangeButtom": "تغيير",
+                "RemoveButtom": "إزالة",
+                "personalInformation": {
+                    "title": "المعلومات الشخصية",
+                    "Form": {
+                        "LblUsername": "اسم المستخدم",
+                        "UsernamePlaceHolder": "اسم المستخدم",
+                        "LblEmail": "البريد الإلكتروني",
+                        "EmailPlaceHolder": "البريد@example.com",
+                        "LblPhone": "رقم الهاتف",
+                        "PhonePlaceHolder": "أدخل رقم الهاتف",
+                        "Optional": "اختياري",
+                        "LblLocation": "الموقع",
+                        "LocationPlaceHolder": "اختيار الموقعك ",
+                        "Code": "الرمز",
+                        "GestionErrors": {}
+                    }
+                }
+            }
+        },
+        "ComponentEmailSetting": {
+            "Title": "إعدادات البريد الإلكتروني",
+            "SubTitle": "أضف بريدًا إلكترونيًا جديدًا إلى الملف الشخصي",
+            "ComponentEmail": {
+                "title": "البريد الإلكتروني",
+                "Form": {
+                    "LblNewEmail": "البريد الإلكتروني الجديد",
+                    "NewEmailPlaceHolder": "أدخل عنوان البريد الإلكتروني",
+                    "GestionErrors": {}
+                }
+            },
+            "ComponentChangePassword": {
+                "title": "تغيير كلمة المرور",
+                "Form": {
+                    "LblCurrentPassword": "كلمة المرور الحالية",
+                    "NewEmailPlaceHolder": "أدخل كلمة المرور الحالية",
+                    "LblNewPassword": "كلمة مرور جديدة",
+                    "NewPasswordPlaceHolder": "أدخل كلمة مرور جديدة",
+                    "LblConfirmNewPassword": "تأكيد كلمة المرور الجديدة",
+                    "ConfirmNewPasswordPlaceHolder": "تأكيد كلمة مرور جديدة",
+                    "GestionErrors": {},
+                    "Notes": {
+                        "Title": "متطلبات كلمة المرور:",
+                        "subTitle": "تأكد من تحقيق هذه المتطلبات:",
+                        "requirement1": "الحد الأدنى 8 أحرف كلما زاد العدد كان أفضل",
+                        "requirement2": "على الأقل حرف صغير واحد",
+                        "requirement3": "على الأقل حرف كبير واحد",
+                        "requirement4": "على الأقل رقم واحد، رمز أو حرف فراغ"
+                    }
+                }
+            }
+        },
+        "ComponentPrefereces": {
+            "Title": "التفضيلات",
+            "subTitle": "قم بتكوين تفضيلاتك",
+            "ComponentPrefereces": {
+                "Form": {
+                    "LblLangauge": "اللغة",
+                    "LangaugePalceHolderSelect": "اختر اللغة",
+                    "SelectOptions": {
+                        "item1": "العربية",
+                        "item2": "الفرنسية",
+                        "item3": "الإنجليزية"
+                    }
+                }
+            }
+        }
     }
 
 }

@@ -57,5 +57,84 @@
                 "ListTeams": "Teams"
             }
         }
+    },
+    "SettingsPage": {
+        "TitlePage": "Settings",
+        "SaveChanges": "Save Changes",
+        "ComponentSettingGeneral": {
+            "Title": "General Setting",
+            "SubTitle": "Profile configuration settings",
+            "Component": {
+                "title": "General Settings",
+                "avatar": "Avatar",
+                "ChangeButtom": "Change",
+                "RemoveButtom": "Remove",
+                "personalInformation": {
+                    "title": "Personal information",
+                    "Form": {
+                        "LblUsername": "Username",
+                        "UsernamePlaceHolder": "Username",
+                        "LblEmail": "Email",
+                        "EmailPlaceHolder": "email@example.com",
+                        "LblPhone": "Phone",
+                        "PhonePlaceHolder": "Enter Phone",
+                        "Optional": "Optional",
+                        "LblLocation": "Location",
+                        "LocationPlaceHolder": "Select your Location",
+                        "Code": "Code ",
+                        "GestionErrors": {}
+                    }
+                }
+            }
+        },
+        "ComponentEmailSetting": {
+            "Title": "Email Setting",
+            "SubTitle": "Add a new email to profile",
+            "ComponentEmail": {
+                "title": "Email",
+                "Form": {
+                    "LblNewEmail": "New Email",
+                    "NewEmailPlaceHolder": "Enter your email adress",
+                    "GestionErrors": {}
+                }
+            },
+            "ComponentChangePassword": {
+                "title": "Change your password",
+                "Form": {
+                    "LblCurrentPassword": "Current password",
+                    "NewEmailPlaceHolder": "Enter Current password",
+                    "LblNewPassword": "New password",
+                    "NewPasswordPlaceHolder": "Enter New password",
+                    "LblConfirmNewPassword": "Confirm new password",
+                    "ConfirmNewPasswordPlaceHolder": "Confirm new password",
+                    "GestionErrors": {},
+                    "Notes": {
+                        "Title": "Password requirements:",
+                        "subTitle": "Ensure that these requirements are met:",
+                        "requirement1": "Minimum 8 characters long the more, the better",
+                        "requirement2": "At least one lowercase character",
+                        "requirement3": "At least one uppercase character",
+                        "requirement4": "At least one number, symbol, or whitespace character"
+                    }
+                }
+            }
+        },
+        "ComponentPrefereces":{
+            "Title":"Preferences",
+            "subTitle":"Configure your preferences",
+            "ComponentPrefereces":{
+                "Form":{
+                    "LblLangauge" : "Langauge",
+                    "LangaugePalceHolderSelect":"Select Langauge",
+                    "SelectOptions":{
+                        "item1":"Arabic",
+                        "item2":"Francais",
+                        "item3":"English"
+                    }
+                }
+            }
+        }
     }
+
+
 }

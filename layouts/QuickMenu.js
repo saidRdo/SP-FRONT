@@ -36,28 +36,59 @@ const QuickMenu = () => {
                     {/*<ListGroup.Item className={index === 0 ? 'bg-light' : ''} >*/}
 
                     <ListGroup.Item className={'bg-light'} >
-                     <Row>
-                         <Col>
-                             <Link href="#" className="text-muted">
-                                 <h5 className=" mb-1">Rishi Chopra</h5>
-                                 <p className="mb-0"> Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.</p>
-                             </Link>
-                         </Col>
-                     </Row>
-                 </ListGroup.Item>
+                        <Row>
+                            <Col>
+                                <Link href="#" className="text-muted">
+                                    <h5 className=" mb-1">Rishi Chopra</h5>
+                                    <p className="mb-0"> Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.</p>
+                                </Link>
+                            </Col>
+                        </Row>
+                    </ListGroup.Item>
+                    <ListGroup.Item className={'bg-light'} >
+                        <Row>
+                            <Col>
+                                <Link href="#" className="text-muted">
+                                    <h5 className=" mb-1">Rishi Chopra</h5>
+                                    <p className="mb-0"> Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.</p>
+                                </Link>
+                            </Col>
+                        </Row>
+                    </ListGroup.Item>
                 </ListGroup>
             </SimpleBar>
         );
     }
 
+    const LocalSwitcherDash = () => {
+        return (
+            <SimpleBar style={{ maxHeight: '300px' }}>
+                <ListGroup variant="flush">
+                    <ListGroup.Item className={'bg-light'} >
+                        <Row>
+                            <Col>
+                                <Link href="#" className="text-muted">
+                                    <h5 className=" mb-1">Francais</h5>
+                                </Link>
+                            </Col>
+                        </Row>
+                    </ListGroup.Item>
+                </ListGroup>
+            </SimpleBar>
+        );
+    }
+
+
     const QuickMenuDesktop = () => {
         return (
         <ListGroup as="ul" bsPrefix='navbar-nav' className="navbar-right-wrap ms-auto d-flex nav-top-wrap">
+
+            {/* Notifications*/}
             <Dropdown as="li" className="stopevent">
                 <Dropdown.Toggle as="a"
-                    bsPrefix=' '
-                    id="dropdownNotification"
-                    className="btn btn-light btn-icon rounded-circle indicator indicator-primary text-muted">
+                                 bsPrefix=' '
+                                 id="dropdownNotification"
+                                 className="btn btn-light btn-icon rounded-circle indicator indicator-primary text-muted">
                     <i className="fe fe-bell"></i>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
@@ -65,7 +96,7 @@ const QuickMenu = () => {
                     aria-labelledby="dropdownNotification"
                     align="end"
                     show
-                    >
+                >
                     <Dropdown.Item className="mt-3" bsPrefix=' ' as="div"  >
                         <div className="border-bottom px-3 pt-0 pb-3 d-flex justify-content-between align-items-end">
                             <span className="h4 mb-0">Notifications</span>
@@ -75,7 +106,9 @@ const QuickMenu = () => {
                                 </span>
                             </Link>
                         </div>
+
                         <Notifications />
+
                         <div className="border-top px-3 pt-3 pb-3">
                             <Link href="#" className="text-link fw-semi-bold">
                                 See all Notifications
@@ -84,6 +117,9 @@ const QuickMenu = () => {
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
+            {/* end Notification/}
+            {/* profile*/}
+
             <Dropdown as="li" className="ms-2">
                 <Dropdown.Toggle
                     as="a"
@@ -102,7 +138,7 @@ const QuickMenu = () => {
                     >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
-                                <h5 className="mb-1"> John E. Grainger</h5>
+                                <h5 className="mb-1"> OneDustry </h5>
                                 <Link href="#" className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
@@ -115,6 +151,7 @@ const QuickMenu = () => {
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
+            {/* end profile*/}
         </ListGroup>
     )}
 
@@ -168,19 +205,10 @@ const QuickMenu = () => {
                     >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
-                                <h5 className="mb-1"> John E. Grainger</h5>
+                                <h5 className="mb-1"> OneDustry </h5>
                                 <Link href="#" className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
-                    </Dropdown.Item>
-                    <Dropdown.Item eventKey="2">
-                        <i className="fe fe-user me-2"></i> Edit Profile
-                    </Dropdown.Item>
-                    <Dropdown.Item eventKey="3">
-                        <i className="fe fe-activity me-2"></i> Activity Log
-                    </Dropdown.Item>
-                    <Dropdown.Item className="text-primary">
-                        <i className="fe fe-star me-2"></i> Go Pro
                     </Dropdown.Item>
                     <Dropdown.Item >
                         <i className="fe fe-settings me-2"></i> Account Settings

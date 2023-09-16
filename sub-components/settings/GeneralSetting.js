@@ -6,8 +6,9 @@ import { FormSelect, DropFiles } from 'widgets';
 
 // import hooks
 import useMounted from 'hooks/useMounted';
+import {useState} from "react";
 
-const GeneralSetting = () => {
+const GeneralSetting = ({lang}) => {
   const hasMounted = useMounted();
   const countryOptions = [
     { value: 'India', label: 'India' },
@@ -15,13 +16,26 @@ const GeneralSetting = () => {
     { value: 'UK', label: 'UK' },
     { value: 'UAE', label: 'UAE' }
   ];
+  const [avatar,setAvatar]=useState()
+  const handleChangeAvatar=(data)=>{
+
+    const imageFile = data.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(imageFile);
+    console.log("reader",reader)
+    reader.onload = function(evt){
+      //console.log("result",evt.target.result)
+      setAvatar(evt.target.result)
+    }
+
+  }
 
   return (
     <Row className="mb-8">
       <Col xl={3} lg={4} md={12} xs={12}>
         <div className="mb-4 mb-lg-0">
-          <h4 className="mb-1">General Setting</h4>
-          <p className="mb-0 fs-5 text-muted">Profile configuration settings </p>
+          <h4 className="mb-1">{lang?.SettingsPage?.ComponentSettingGeneral?.Title}</h4>
+          <p className="mb-0 fs-5 text-muted">{lang?.SettingsPage?.ComponentSettingGeneral?.SubTitle}</p>
         </div>
       </Col>
       <Col xl={9} lg={8} md={12} xs={12}>
@@ -29,111 +43,103 @@ const GeneralSetting = () => {
           {/* card body */}
           <Card.Body>
             <div className=" mb-6">
-              <h4 className="mb-1">General Settings</h4>
+              <h4 className="mb-1">{lang?.SettingsPage?.ComponentSettingGeneral?.Component?.title}</h4>
             </div>
             <Row className="align-items-center mb-8">
               <Col md={3} className="mb-3 mb-md-0">
-                <h5 className="mb-0">Avatar</h5>
+                <h5 className="mb-0">{lang?.SettingsPage?.ComponentSettingGeneral?.Component?.avatar}</h5>
               </Col>
               <Col md={9}>
                 <div className="d-flex align-items-center">
                   <div className="me-3">
-                    <Image src="/images/avatar/avatar-5.jpg" className="rounded-circle avatar avatar-lg" alt="" />
+                    <Image src={avatar?avatar:"/images/avatar/avatar-5.jpg"} className="rounded-circle avatar avatar-lg" alt="" />
                   </div>
                   <div>
-                    <Button variant="outline-white" className="me-2" type="submit">Change </Button>
-                    <Button variant="outline-white" type="submit">Remove </Button>
+                    <input type={"file"} id={"avatarFromSetting"} hidden={true} onChange={(e)=>handleChangeAvatar(e)}/>
+                    <Button variant="outline-white" className="me-2" type="submit"
+                            onClick={()=>document.getElementById('avatarFromSetting').click()}>
+                      {lang?.SettingsPage?.ComponentSettingGeneral?.Component.ChangeButtom}
+                    </Button>
+                    <Button variant="outline-white" type="submit"
+                    onClick={()=>setAvatar(null)}>
+                      {lang?.SettingsPage?.ComponentSettingGeneral?.Component?.RemoveButtom}
+                    </Button>
                   </div>
-                </div>
-              </Col>
-            </Row>
-            {/* col */}
-            <Row className="mb-8">
-              <Col md={3} className="mb-3 mb-md-0">
-                {/* heading */}
-                <h5 className="mb-0">Cover photo</h5>
-              </Col>
-              <Col md={9}>
-                {/* dropzone input */}
-                <div>
-                  {hasMounted && <Form action="#" className="dropzone mb-3 py-10 border-dashed">
-                    <DropFiles />
-                  </Form>}
-                  <Button variant="outline-white" type="submit">Change </Button>
                 </div>
               </Col>
             </Row>
             <div>
               <div className="mb-6">
-                <h4 className="mb-1">Basic information</h4>
+                <h4 className="mb-1">{lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.title}</h4>
               </div>
               {hasMounted && 
               <Form>
                 <Row className="mb-3">
-                  <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="fullName">Full name</Form.Label>
-                  <Col sm={4} className="mb-3 mb-lg-0">
-                    <Form.Control type="text" placeholder="First name" id="fullName" required />
-                  </Col>
-                  <Col sm={4}>
-                    <Form.Control type="text" placeholder="Last name" id="lastName" required />
-                  </Col>
-                </Row>
-                {/* row */}
-                <Row className="mb-3">
-                <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="email">Email</Form.Label>
-                  <Col md={8} xs={12}>
-                    <Form.Control type="email" placeholder="Email" id="email" required />
+                  <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="username">
+                    {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblUsername}
+                  </Form.Label>
+                  <Col sm={8} className="mb-3 mb-lg-0">
+                    <Form.Control type="text" placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.UsernamePlaceHolder} id="username" required />
                   </Col>
                 </Row>
                 {/* row */}
                 <Row className="mb-3">
-                  <Form.Label className="col-sm-4" htmlFor="phone">Phone <span className="text-muted">(Optional)</span></Form.Label>
+                <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="email">
+                  {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblEmail}
+                </Form.Label>
                   <Col md={8} xs={12}>
-                    <Form.Control type="text" placeholder="Enter Phone" id="phone" />
+                    <Form.Control type="email" placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.EmailPlaceHolder} id="email" required />
+                  </Col>
+                </Row>
+                {/* row */}
+                <Row className="mb-3">
+                  <Form.Label className="col-sm-4" htmlFor="phone">
+                    {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblPhone}
+                    <span className="text-muted">({lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.Optional})</span></Form.Label>
+                  <Col md={8} xs={12}>
+                    <Form.Control type="text" placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.PhonePlaceHolder} id="phone" />
                   </Col>
                 </Row>
 
                 {/* Location */}
                 <Row className="mb-3">
-                  <Form.Label className="col-sm-4" htmlFor="country">Location</Form.Label>
+                  <Form.Label className="col-sm-4" htmlFor="country">
+                    {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblLocation}
+                  </Form.Label>
                   <Col md={8} xs={12}>
                     <Form.Control as={FormSelect} placeholder="Select Country" id="country" options={countryOptions} />
                   </Col>
                 </Row>
 
-                {/* Address Line One */}
+                {/* Address Line One
                 <Row className="mb-3">
                   <Form.Label className="col-sm-4" htmlFor="addressLine">Address line 1</Form.Label>
                   <Col md={8} xs={12}>
                     <Form.Control type="text" placeholder="Enter Address line 1" id="addressLine" required />
                   </Col>
-                </Row>
+                </Row>*/}
 
-                {/* Address Line Two */}
-                <Row className="mb-3">
-                  <Form.Label className="col-sm-4" htmlFor="addressLineTwo">Address line 2</Form.Label>
-                  <Col md={8} xs={12}>
-                    <Form.Control type="text" placeholder="Enter Address line 2" id="addressLineTwo" required />
-                  </Col>
-                </Row>
 
 
                 {/* Zip code */}
                 <Row className="align-items-center">
-                  <Form.Label className="col-sm-4" htmlFor="zipcode">Zip code</Form.Label>
+                  <Form.Label className="col-sm-4" htmlFor="zipcode">
+                    {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.Code}
+                  </Form.Label>
 
                   <Col md={8} xs={12}>
-                    <Form.Control type="text" placeholder="Enter Zip code" id="zipcode" required />
+                    <Form.Control type="text" placeholder="Code" id="zipcode" required />
                   </Col>
 
                   <Col md={{ offset: 4, span: 8 }} xs={12} className="mt-4">
                     <Button variant="primary" type="submit">
-                      Save Changes
+                      {lang?.SettingsPage?.SaveChanges}
                     </Button>
                   </Col>
 
                 </Row>
               </Form>
+
               }
             </div>
           </Card.Body>

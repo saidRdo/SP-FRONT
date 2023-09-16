@@ -1,6 +1,6 @@
 "use client"
 import { v4 as uuid } from 'uuid';
-import {AiOutlineHome} from "react-icons/ai";
+import {AiFillSetting, AiOutlineHome} from "react-icons/ai";
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
 
 const DashboardMenu = () => {
@@ -91,6 +91,13 @@ const DashboardMenu = () => {
                 }
             ]
         }*/
+
+		{
+			id: uuid(),
+			title: "Settings",
+			icon: <AiFillSetting style={{margin:"5px"}}/>,
+			link: "dashboard/settings",
+		},
 	];
 
 	return Menu;
