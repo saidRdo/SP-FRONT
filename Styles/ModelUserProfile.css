@@ -67,3 +67,6 @@ label svg{
 .subTitle{
     text-align: center;
 }
+.offset-rtl{
+    margin-right: 33.333333%;
+}

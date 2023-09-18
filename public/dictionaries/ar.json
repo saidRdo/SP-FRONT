@@ -102,7 +102,7 @@
                 "title": "تغيير كلمة المرور",
                 "Form": {
                     "LblCurrentPassword": "كلمة المرور الحالية",
-                    "NewEmailPlaceHolder": "أدخل كلمة المرور الحالية",
+                    "CurrentPasswordPlaceHolder": "أدخل كلمة المرور الحالية",
                     "LblNewPassword": "كلمة مرور جديدة",
                     "NewPasswordPlaceHolder": "أدخل كلمة مرور جديدة",
                     "LblConfirmNewPassword": "تأكيد كلمة المرور الجديدة",

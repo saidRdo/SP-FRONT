@@ -26,14 +26,14 @@ const EmailSetting = ({lang}) => {
               <Form>
                 {/* New email */}
                 <Row className="mb-3">
-                  <Form.Label className="col-sm-4" htmlFor="newEmailAddress">
+                  <Form.Label className={`col-sm-4`} htmlFor="newEmailAddress">
                     {lang?.SettingsPage?.ComponentEmailSetting?.ComponentEmail?.Form?.LblNewEmail}
                   </Form.Label>
                   <Col md={8} xs={12}>
                     <Form.Control type="email" placeholder={lang?.SettingsPage?.ComponentEmailSetting?.ComponentEmail?.Form?.NewEmailPlaceHolder}
                                   id="newEmailAddress" required />
                   </Col>
-                  <Col md={{ offset: 4, span: 8 }} xs={12} className="mt-3">
+                  <Col md={{ offset: 4, span: 8 }} xs={12} className={`mt-3 ${lang?.lang==="ar"?"offset-rtl":''}`}>
                     <Button variant="primary" type="submit">
                       {lang?.SettingsPage?.SaveChanges}
                     </Button>
@@ -77,7 +77,7 @@ const EmailSetting = ({lang}) => {
                     <Form.Control type="password" placeholder={lang?.SettingsPage?.ComponentEmailSetting?.ComponentChangePassword?.Form?.ConfirmNewPasswordPlaceHolder} id="confirmNewpassword" required />
                   </Col>
                   {/* list */}
-                  <Col md={lang?.lang==="ar"?{ offset: 4, span: 8 }:{ offset: 4, span: 8 }} xs={12} className="mt-4">
+                  <Col md={{ offset: 4, span: 8}} xs={12} className={`mt-4  ${lang?.lang==="ar"?"offset-rtl":''}`}>
                     <h5 className="mb-1">{lang?.SettingsPage?.ComponentEmailSetting?.ComponentChangePassword?.Form?.Notes.Title}</h5>
                     <p>{lang?.SettingsPage?.ComponentEmailSetting?.ComponentChangePassword?.Form?.Notes.subTitle}</p>
                     <ul>

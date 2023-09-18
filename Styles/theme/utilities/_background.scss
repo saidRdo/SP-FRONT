@@ -17,3 +17,11 @@
 .bg-gray-400 {
     background-color: $gray-400;
 }
+.bg-global-content{
+    background-color: $body-bg-content;
+}
+.bg-login-page{
+    background-image: url("../../../public/images/background/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

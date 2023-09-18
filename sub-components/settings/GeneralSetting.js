@@ -56,7 +56,7 @@ const GeneralSetting = ({lang}) => {
                   </div>
                   <div>
                     <input type={"file"} id={"avatarFromSetting"} hidden={true} onChange={(e)=>handleChangeAvatar(e)}/>
-                    <Button variant="outline-white" className="me-2" type="submit"
+                    <Button variant="outline-white" className="me-2 ml-2 mr-2" type="submit"
                             onClick={()=>document.getElementById('avatarFromSetting').click()}>
                       {lang?.SettingsPage?.ComponentSettingGeneral?.Component.ChangeButtom}
                     </Button>
@@ -131,7 +131,7 @@ const GeneralSetting = ({lang}) => {
                     <Form.Control type="text" placeholder="Code" id="zipcode" required />
                   </Col>
 
-                  <Col md={{ offset: 4, span: 8 }} xs={12} className="mt-4">
+                  <Col md={{ offset: 4, span: 8 }} xs={12} className={`mt-4  ${lang?.lang==="ar"?"offset-rtl":''}`}>
                     <Button variant="primary" type="submit">
                       {lang?.SettingsPage?.SaveChanges}
                     </Button>

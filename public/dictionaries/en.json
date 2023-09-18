@@ -102,7 +102,7 @@
                 "title": "Change your password",
                 "Form": {
                     "LblCurrentPassword": "Current password",
-                    "NewEmailPlaceHolder": "Enter Current password",
+                    "CurrentPasswordPlaceHolder": "Enter Current password",
                     "LblNewPassword": "New password",
                     "NewPasswordPlaceHolder": "Enter New password",
                     "LblConfirmNewPassword": "Confirm new password",

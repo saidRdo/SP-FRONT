@@ -19,7 +19,7 @@ export default function DashboardLayout({ children }) {
     };
 
     return (
-        <div id="db-wrapper" className={`${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} ${showMenu ? '' : 'toggled'} `}>
+        <div id="db-wrapper" className={`bg-global-content ${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} ${showMenu ? '' : 'toggled'} `}>
             <div className={`navbar-vertical ${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} navbar`}>
                 <NavbarVertical
                     showMenu={showMenu}
