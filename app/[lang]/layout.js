@@ -1,11 +1,11 @@
-import "../../Styles/globals.css"
-import "../../Styles/tailwind.output.css"
+import "@/Styles/globals.css"
+import "@/Styles/tailwind.output.css"
 import { getDictionary } from '@/get-dictionary';
 import Providers from "@/components/NextAuthProviders";
 import {DictionaryProvider} from "@/components/DictionaryProvider/DictionaryProvider";
 
 // import theme style scss file
-import '../../Styles/theme.scss';
+import '@/Styles/theme.scss';
 
 export default async function Root({ children, params }) {
     const dictionary = await getDictionary(params.lang);
