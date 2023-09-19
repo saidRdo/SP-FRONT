@@ -49,7 +49,7 @@ export function middleware(request) {
     /*
     console.log("request",request)
     console.log("pathname",pathname)
-    console.log("request.url",request.url)*/
+    console.log("pathnameIsMissingLocale.url",pathnameIsMissingLocale)*/
 
     // Redirect if there is no locale
     if (pathnameIsMissingLocale) {

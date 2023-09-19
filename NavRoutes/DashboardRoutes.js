@@ -2,9 +2,12 @@
 import { v4 as uuid } from 'uuid';
 import {AiFillSetting, AiOutlineHome} from "react-icons/ai";
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
+import {usePathname} from "next/navigation";
 
 const DashboardMenu = () => {
 	const dictionary = useDictionary();
+	const pathName = usePathname();
+
 
 	const Menu  = [
 
@@ -12,7 +15,7 @@ const DashboardMenu = () => {
 			id: uuid(),
 			title: dictionary.SideBar.Home,
 			icon: <AiOutlineHome style={{margin:"5px"}}/>,
-			link: '/dashboard'
+			link: `/${pathName.split('/')[1]}/dashboard`
 		},
 		{
 			id: uuid(),
@@ -96,7 +99,7 @@ const DashboardMenu = () => {
 			id: uuid(),
 			title: "Settings",
 			icon: <AiFillSetting style={{margin:"5px"}}/>,
-			link: "dashboard/settings",
+			link: `/${pathName.split('/')[1]}/dashboard/settings`,
 		},
 	];
 
