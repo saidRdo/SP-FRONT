@@ -33,30 +33,24 @@
         "Phone": "الهاتف :",
         "UserLang": "اللغة :"
     },
-    "SideBar": {
+    "AdminRoutes": {
         "Home": "الصفحة الرئيسية",
-        "USEROLE": {
-            "Title": "المستخدمين والأدوار",
-            "Users": {
-                "Title": "المستخدمين",
-                "ListUsers": "المستخدمين"
-            },
-            "Roles": {
-                "Title": "الأدوار",
-                "ListRoles": "الدور"
-            }
+        "Agents": {
+            "title": "الوكلاء",
+            "addAgents": "إضافة وكلاء",
+            "listAgents": "قائمة الوكلاء"
         },
-        "PARKINGTEAM": {
-            "Title": "مواقف السيارات والفرق",
-            "Parking": {
-                "Title": "مواقف السيارات",
-                "ListParking": "مواقف السيارات"
-            },
-            "TEAM": {
-                "Title": "الفرق",
-                "ListTeams": "الفرق"
-            }
-        }
+        "Zone": {
+            "title": "المنطقة",
+            "addZone": "إضافة منطقة",
+            "listZones": "قائمة المناطق"
+        },
+        "Parking": {
+            "title": "مواقف السيارات",
+            "addParking": "إضافة موقف",
+            "listParking": "قائمة مواقف السيارات"
+        },
+        "settings": "الإعدادات"
     },
     "SettingsPage": {
         "TitlePage": "الإعدادات",

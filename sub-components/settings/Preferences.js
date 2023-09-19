@@ -34,8 +34,10 @@ const Preferences = ({lang}) => {
                 <Form.Label className="col-md-4 mb-5" htmlFor="langauge">
                   {lang.SettingsPage.ComponentPrefereces?.ComponentPrefereces.Form.LblLangauge}
                 </Form.Label>
-                <Col md={8} xs={12}>
-                  <LocaleSwitcher/>
+                <Col md={4} xs={12} className={""}>
+                  <div className={"switcherLang"} >
+                    <LocaleSwitcher/>
+                  </div>
                 </Col>
               </Row>
           </Card.Body>

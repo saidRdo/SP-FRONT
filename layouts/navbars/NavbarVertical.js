@@ -19,12 +19,12 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
 // import routes file
-import DashboardMenu  from '@/NavRoutes/DashboardRoutes';
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
+import AdminMenu from "@/NavRoutes/AdminRoutes";
 
 const NavbarVertical = (props) => {
 	const location = usePathname ()
-	const Menu=DashboardMenu()
+	const Menu=AdminMenu()
 	const dictionary = useDictionary();
 
 	const CustomToggle = ({ children, eventKey, icon }) => {

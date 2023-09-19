@@ -9,7 +9,7 @@ export const FormSelect = (props={
 	name: '',
 	className:''
 }) => {
-	const { placeholder,  options, id, name, onChange, className } = props;
+	const { placeholder, defaultselected, options, id, name, onChange, className } = props;
 
 	return (
 		<Fragment>
@@ -18,6 +18,7 @@ export const FormSelect = (props={
 				name={name}
 				onChange={onChange}
 				className={className}
+				defaultValue={defaultselected}
 			>
 				{placeholder ? (
 					<option value="" className="text-muted">

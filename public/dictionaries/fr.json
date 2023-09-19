@@ -33,30 +33,24 @@
         "Phone": "Téléphone :",
         "UserLang": "Langue :"
     },
-    "SideBar": {
-        "Home": "Accueil",
-        "USEROLE": {
-            "Title": "UTILISATEURS ET RÔLES",
-            "Users": {
-                "Title": "Utilisateurs",
-                "ListUsers": "Utilisateurs"
-            },
-            "Roles": {
-                "Title": "Rôles",
-                "ListRoles": "Rôles"
-            }
+    "AdminRoutes": {
+        "Home": "Home",
+        "Agents": {
+            "title": "Agents",
+            "addAgents": "Add Agent",
+            "listAgents": "List Agents"
         },
-        "PARKINGTEAM": {
-            "Title": "STATIONNEMENT ET ÉQUIPES",
-            "Parking": {
-                "Title": "Stationnement",
-                "ListParking": "Stationnements"
-            },
-            "TEAM": {
-                "Title": "Équipes",
-                "ListTeams": "Équipes"
-            }
-        }
+        "Zone": {
+            "title": "Zone",
+            "addZone": "Add Zone",
+            "listZones": "List Zones"
+        },
+        "Parking": {
+            "title": "Parking",
+            "addParking": "Add Parking",
+            "listParking": "List Parking"
+        },
+        "settings": "Settings"
     },
 
     "SettingsPage": {

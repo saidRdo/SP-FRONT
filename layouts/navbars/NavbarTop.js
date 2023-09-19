@@ -30,7 +30,7 @@ const NavbarTop = (props) => {
 				</div>
 				{/* Quick Menu */}
 				<Nav className="navbar-right-wrap ms-2 d-flex nav-top-wrap">
-					<QuickMenu />
+					<QuickMenu langauge={props.data.lang}/>
 				</Nav>
 			</div>
 		</Navbar>

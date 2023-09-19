@@ -85,6 +85,8 @@
         .dropdown-menu {
           position: absolute;
           margin: 0.25rem 0.75rem !important;
+          left: 0;
+          right: 10px;
           .dropdown-submenu .dropdown-menu {
             position: relative;
             top: -7px !important;

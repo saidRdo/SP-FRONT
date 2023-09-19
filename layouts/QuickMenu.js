@@ -20,7 +20,7 @@ import useMounted from '@/hooks/useMounted';
 import {useSession} from "next-auth/react";
 import dynamic from "next/dynamic";
 
-const QuickMenu = () => {
+const QuickMenu = (props) => {
 
     const hasMounted = useMounted();
     
@@ -60,31 +60,14 @@ const QuickMenu = () => {
         );
     }
 
-    const LocalSwitcherDash = () => {
-        return (
-            <SimpleBar style={{ maxHeight: '300px' }}>
-                <ListGroup variant="flush">
-                    <ListGroup.Item className={'bg-light'} >
-                        <Row>
-                            <Col>
-                                <Link href="#" className="text-muted">
-                                    <h5 className=" mb-1">Francais</h5>
-                                </Link>
-                            </Col>
-                        </Row>
-                    </ListGroup.Item>
-                </ListGroup>
-            </SimpleBar>
-        );
-    }
 
 
     const QuickMenuDesktop = () => {
         return (
         <ListGroup as="ul" bsPrefix='navbar-nav' className="navbar-right-wrap ms-auto d-flex nav-top-wrap">
 
-            {/* Notifications*/}
-            <Dropdown as="li" className="stopevent">
+            {/* Notifications
+            <Dropdown as="li" className="stopevent ml-2 mr-2">
                 <Dropdown.Toggle as="a"
                                  bsPrefix=' '
                                  id="dropdownNotification"
@@ -92,7 +75,7 @@ const QuickMenu = () => {
                     <i className="fe fe-bell"></i>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
-                    className="dashboard-dropdown notifications-dropdown dropdown-menu-lg dropdown-menu-end py-0"
+                    className={`dashboard-dropdown notifications-dropdown dropdown-menu-lg dropdown-menu-${props.langauge==="ar"?'start':'end'} py-0`}
                     aria-labelledby="dropdownNotification"
                     align="end"
                     show
@@ -116,11 +99,11 @@ const QuickMenu = () => {
                         </div>
                     </Dropdown.Item>
                 </Dropdown.Menu>
-            </Dropdown>
-            {/* end Notification/}
+            </Dropdown>*/}
+            {/* end Notification*/}
             {/* profile*/}
 
-            <Dropdown as="li" className="ms-2">
+            <Dropdown as="li" className="ms-2  ml-2 mr-2">
                 <Dropdown.Toggle
                     as="a"
                     bsPrefix=' '
@@ -131,7 +114,7 @@ const QuickMenu = () => {
                     </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
-                    className="dropdown-menu dropdown-menu-end "
+                    className={`dropdown-menu dropdown-menu-${props.langauge==="ar"?'start':'end'}` }
                     align="end"
                     aria-labelledby="dropdownUser"
                     show
@@ -139,11 +122,11 @@ const QuickMenu = () => {
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
                                 <h5 className="mb-1"> OneDustry </h5>
-                                <Link href="#" className="text-inherit fs-6">View my profile</Link>
+                                <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
                     </Dropdown.Item>
-                    <Dropdown.Item >
+                    <Dropdown.Item href={`/${props.langauge}/dashboard/settings`} >
                         <i className="fe fe-settings me-2"></i> Account Settings
                     </Dropdown.Item>
                     <Dropdown.Item>
@@ -158,7 +141,7 @@ const QuickMenu = () => {
     const QuickMenuMobile = () => {
         return (
         <ListGroup as="ul" bsPrefix='navbar-nav' className="navbar-right-wrap ms-auto d-flex nav-top-wrap">
-            <Dropdown as="li" className="stopevent">
+            {/* <Dropdown as="li" className="stopevent ml-2 mr-2">
                 <Dropdown.Toggle as="a"
                     bsPrefix=' '
                     id="dropdownNotification"
@@ -166,7 +149,7 @@ const QuickMenu = () => {
                     <i className="fe fe-bell"></i>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
-                    className="dashboard-dropdown notifications-dropdown dropdown-menu-lg dropdown-menu-end py-0"
+                    className={`dashboard-dropdown notifications-dropdown dropdown-menu-lg dropdown-menu-${props.langauge==="ar"?'start':'end'} py-0`}
                     aria-labelledby="dropdownNotification"
                     align="end"
                     >
@@ -187,8 +170,8 @@ const QuickMenu = () => {
                         </div>
                     </Dropdown.Item>
                 </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown as="li" className="ms-2">
+            </Dropdown>*/}
+            <Dropdown as="li" className="ms-2 ml-2 mr-2">
                 <Dropdown.Toggle
                     as="a"
                     bsPrefix=' '
@@ -199,18 +182,18 @@ const QuickMenu = () => {
                     </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
-                    className="dropdown-menu dropdown-menu-end "
+                    className={`dropdown-menu dropdown-menu-${props.langauge==="ar"?'start':'end'} `}
                     align="end"
                     aria-labelledby="dropdownUser"
                     >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
                                 <h5 className="mb-1"> OneDustry </h5>
-                                <Link href="#" className="text-inherit fs-6">View my profile</Link>
+                                <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
                     </Dropdown.Item>
-                    <Dropdown.Item >
+                    <Dropdown.Item href={`/${props.langauge}/dashboard/settings`}>
                         <i className="fe fe-settings me-2"></i> Account Settings
                     </Dropdown.Item>
                     <Dropdown.Item>

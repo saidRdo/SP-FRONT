@@ -1,20 +1,17 @@
 'use client'
 // import node module libraries
 import { Fragment } from "react";
-import Link from 'next/link';
-import { Container, Col, Row } from 'react-bootstrap';
-import {Briefcase} from "react-feather";
-
-// import widget/custom components
-import { StatRightTopIcon } from "@/widgets";
+import {Container, Col, Row, Card} from 'react-bootstrap';
 
 // import sub components
-import { ActiveProjects, Teams,
-    TasksPerformance
-} from "@/sub-components";
 import dynamic from "next/dynamic";
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
-import ProjectsStats from "@/data/dashboard/ProjectsStatsData";
+import LineChart from "@/sub-components/dashboard/charts/LineChart";
+import BarChart from "@/sub-components/dashboard/charts/BarChart";
+import PieChart from "@/sub-components/dashboard/charts/PieChart";
+import {ContentHeader} from "@/sub-components/dashboard/ContentHeader";
+import Statistics from "@/sub-components/dashboard/Statistics";
+import Claims from "@/sub-components/dashboard/Claims";
 
 
 
@@ -29,43 +26,55 @@ const Home = () => {
                     <Col lg={12} md={12} xs={12}>
                         {/* Page header */}
                         <div>
-                            <div className="d-flex justify-content-between align-items-center">
-                                <div className="mb-2 mb-lg-0">
-                                    <h3 className="mb-0  text-white">{dictionary.indexPage.Title}</h3>
-                                </div>
-                                {/* <div>
-                                    <Link href="#" className="btn btn-white">Create New Project</Link>
-                                </div>*/}
-                            </div>
+                            <ContentHeader/>
                         </div>
                     </Col>
-                    {ProjectsStats.map((items,index)=> {
-                        return (
-                            <Col xl={3} lg={6} md={12} xs={12} className="mt-6" key={index}>
-                                <StatRightTopIcon info={items}/>
-                            </Col>
-                        );
-                    })}
+
+
+                    {/*  Line Chart && Bar Chart */}
+
+                    <Col xl={6} lg={12} md={12} xs={12} className="mt-6">
+                        <Card>
+                            <Card.Body>
+                                <div className="d-flex justify-content-evenly align-items-center mb-3">
+                                    <LineChart/>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col xl={6} lg={12} md={12} xs={12} className="mt-6">
+                        <Card>
+                            <Card.Body>
+                                <div className="d-flex justify-content-evenly align-items-center mb-3">
+                                    <BarChart/>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+                    {/* Pie Chart  */}
+
+                    <Col xl={6} lg={12} md={12} xs={12} className="mt-6">
+                        <Card>
+                            <Card.Body>
+                                <div className="d-flex justify-content-evenly align-items-center mb-3">
+                                    <PieChart/>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+
                 </Row>
 
-                {/* Active Projects  */}
-                <ActiveProjects />
+                {/* Table des Statistiques  */}
+                <Statistics />
 
-                <Row className="my-6">
-                    <Col xl={4} lg={12} md={12} xs={12} className="mb-6 mb-xl-0">
+                {/* Table des réclamations  */}
+                <div className={"mb-4"}>
+                    <Claims />
+                </div>
 
-                        {/* Tasks Performance  */}
-                        <TasksPerformance />
-
-                    </Col>
-                    {/* card  */}
-                    <Col xl={8} lg={12} md={12} xs={12}>
-
-                        {/* Teams  */}
-                        <Teams />
-
-                    </Col>
-                </Row>
             </Container>
         </Fragment>
     )
