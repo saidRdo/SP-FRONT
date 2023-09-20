@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
-import NumberOfReservedParkingSpacesByHours from "@/data/dashboard/Charts/PieChart";
+import NumberOfReservedParkingSpacesByHours from "@/data/dashboard/Charts/PieChartData";
 
 const PieChart = () => {
     const data = {
@@ -21,7 +21,7 @@ const PieChart = () => {
         ],
     };
     return (
-        <div>
+        <div className={"chartCard"}>
             <Pie data={data} />
         </div>
     );

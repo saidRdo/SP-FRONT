@@ -1,7 +1,7 @@
 const NumberOfReservedPlaces=[
     {
         label:"Moto",
-        ReservedPlaces:30
+            ReservedPlaces:30
     },
     {
         label:"Voiture",

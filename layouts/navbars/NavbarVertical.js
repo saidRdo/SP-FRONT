@@ -52,9 +52,7 @@ const NavbarVertical = (props) => {
 	};
 	const CustomToggleLevel2 = ({ children, eventKey, icon }) => {
 		const { activeEventKey } = useContext(AccordionContext);
-		const decoratedOnClick = useAccordionButton(eventKey, () =>
-			console.log('totally custom!')
-		);
+		const decoratedOnClick = useAccordionButton(eventKey, );
 		const isCurrentEventKey = activeEventKey === eventKey;
 		return (
 			(<Link
@@ -225,7 +223,9 @@ const NavbarVertical = (props) => {
 								return (
 									<Card bsPrefix="nav-item" key={index}>
 										{/* menu item without any childern items like Documentation and Changelog items*/}
-										<Link href={menu.link} className={`nav-link ${location === menu.link ? 'active' : ''} ${menu.title === 'Download' ? 'bg-primary text-white' : ''}`}>
+										<Link href={menu.link}
+											  onClick={()=>isMobile ? props.onClick(!props.showMenu) : props.showMenu}
+											  className={`nav-link ${location === menu.link ? 'active' : ''} ${menu.title === 'Download' ? 'bg-primary text-white' : ''}`}>
 											{typeof menu.icon === 'string' ? (
 												<i className={`nav-icon fe fe-${menu.icon} me-2`}></i>
 											) : (menu.icon)}

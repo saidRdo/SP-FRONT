@@ -20,7 +20,7 @@ const Home = () => {
 
     return (
         <Fragment>
-            <div className="bg-primary pt-10 pb-21"></div>
+            <div className="bg-dashboard-header pt-10 pb-21"></div>
             <Container fluid className="mt-n22 px-6">
                 <Row>
                     <Col lg={12} md={12} xs={12}>
@@ -33,19 +33,19 @@ const Home = () => {
 
                     {/*  Line Chart && Bar Chart */}
 
-                    <Col xl={6} lg={12} md={12} xs={12} className="mt-6">
+                    <Col xl={4} lg={6} md={12} xs={12} className="mt-6">
                         <Card>
                             <Card.Body>
-                                <div className="d-flex justify-content-evenly align-items-center mb-3">
+                                <div className="d-flex justify-content-evenly align-items-center mb-3 p-2">
                                     <LineChart/>
                                 </div>
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col xl={6} lg={12} md={12} xs={12} className="mt-6">
+                    <Col xl={4} lg={6} md={12} xs={12} className="mt-6">
                         <Card>
                             <Card.Body>
-                                <div className="d-flex justify-content-evenly align-items-center mb-3">
+                                <div className="d-flex justify-content-evenly align-items-center mb-3 p-2">
                                     <BarChart/>
                                 </div>
                             </Card.Body>
@@ -54,10 +54,10 @@ const Home = () => {
 
                     {/* Pie Chart  */}
 
-                    <Col xl={6} lg={12} md={12} xs={12} className="mt-6">
+                    <Col xl={4} lg={12} md={12} xs={12} className="mt-6">
                         <Card>
                             <Card.Body>
-                                <div className="d-flex justify-content-evenly align-items-center mb-3">
+                                <div className="d-flex justify-content-evenly align-items-center mb-3 p-2">
                                     <PieChart/>
                                 </div>
                             </Card.Body>

@@ -2,7 +2,7 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import NumberOfReservedPlaces from "@/data/dashboard/Charts/BarChart";
+import NumberOfReservedPlaces from "@/data/dashboard/Charts/BarChartData";
 
 const BarChart = () => {
     const data = {
@@ -23,7 +23,7 @@ const BarChart = () => {
         ],
     };
     return (
-        <div>
+        <div className={"chartCard"}>
             <Bar data={data} />
         </div>
     );

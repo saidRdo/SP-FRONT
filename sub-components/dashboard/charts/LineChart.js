@@ -2,7 +2,7 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-import NumberOfHoursBooked from "@/data/dashboard/Charts/LineChart";
+import NumberOfHoursBooked from "@/data/dashboard/Charts/LineChartData";
 
 const LineChart = () => {
 
@@ -20,7 +20,7 @@ const LineChart = () => {
     };
 
     return (
-        <div>
+        <div className={"chartCard"}>
             <Line data={data} />
         </div>
     );
