@@ -1,22 +1,21 @@
 'use client'
 // import node module libraries
-import { Fragment } from "react";
+import {Fragment, useState} from "react";
 import {Container, Col, Row, Card} from 'react-bootstrap';
 
 // import sub components
 import dynamic from "next/dynamic";
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
-import LineChart from "@/sub-components/dashboard/charts/LineChart";
-import BarChart from "@/sub-components/dashboard/charts/BarChart";
-import PieChart from "@/sub-components/dashboard/charts/PieChart";
 import {ContentHeader} from "@/sub-components/dashboard/ContentHeader";
-import Statistics from "@/sub-components/dashboard/Statistics";
-import Claims from "@/sub-components/dashboard/Claims";
+
+import Link from "next/link";
+import DashboardTap from "@/sub-components/dashboard/Taps/DashboardTap";
 
 
 
 const Home = () => {
     const dictionary = useDictionary();
+    const [NextTap,setNextTap]=useState(1)
 
     return (
         <Fragment>
@@ -29,51 +28,45 @@ const Home = () => {
                             <ContentHeader/>
                         </div>
                     </Col>
-
-
-                    {/*  Line Chart && Bar Chart */}
-
-                    <Col xl={4} lg={6} md={12} xs={12} className="mt-6">
-                        <Card>
-                            <Card.Body>
-                                <div className="d-flex justify-content-evenly align-items-center mb-3 p-2">
-                                    <LineChart/>
-                                </div>
-                            </Card.Body>
-                        </Card>
+                    <Col lg={12} md={12} xs={12} as={"div"} className={"bg-white rounded-bottom smooth-shadow-sm"} style={
+                        {
+                            marginTop:"50px"
+                        }
+                    }>
+                        <ul className="nav nav-lt-tab px-4" id="pills-tab" role="tablist">
+                            <li className="nav-item">
+                                <Link className={`nav-link ${NextTap===1?"active":""}`} href="#" onClick={(event)=> {
+                                    event.preventDefault();
+                                    setNextTap(1)
+                                }}>Dashboard</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${NextTap===2?"active":""}`} href="#" onClick={(event)=> {
+                                    event.preventDefault();
+                                    setNextTap(2)
+                                }}>Tap2</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${NextTap===3?"active":""}`} href="#" onClick={(event)=> {
+                                    event.preventDefault();
+                                    setNextTap(3)
+                                }}>Tap3</Link>
+                            </li>
+                        </ul>
                     </Col>
-                    <Col xl={4} lg={6} md={12} xs={12} className="mt-6">
-                        <Card>
-                            <Card.Body>
-                                <div className="d-flex justify-content-evenly align-items-center mb-3 p-2">
-                                    <BarChart/>
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    {/* Pie Chart  */}
-
-                    <Col xl={4} lg={12} md={12} xs={12} className="mt-6">
-                        <Card>
-                            <Card.Body>
-                                <div className="d-flex justify-content-evenly align-items-center mb-3 p-2">
-                                    <PieChart/>
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-
                 </Row>
-
-                {/* Table des Statistiques  */}
-                <Statistics />
-
-                {/* Table des réclamations  */}
-                <div className={"mb-4"}>
-                    <Claims />
-                </div>
+                {(() => {
+                    switch(NextTap){
+                        case 1:
+                            return <DashboardTap/>;
+                        case 2:
+                            return <h1>Tap 2</h1>;
+                        case 3:
+                            return <h1>Tap 3</h1>
+                        default:
+                            return null
+                    }
+                })()}
 
             </Container>
         </Fragment>

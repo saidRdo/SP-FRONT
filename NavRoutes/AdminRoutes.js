@@ -3,7 +3,8 @@ import { v4 as uuid } from 'uuid';
 import {AiFillSetting, AiOutlineHome, AiOutlineUsergroupAdd} from "react-icons/ai";
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
 import {usePathname} from "next/navigation";
-import {FaGripHorizontal, FaParking} from "react-icons/fa";
+import {FaGripHorizontal} from "react-icons/fa";
+import {MdAssignmentTurnedIn} from "react-icons/md";
 
 const AdminMenu = () => {
     const dictionary = useDictionary();
@@ -11,7 +12,6 @@ const AdminMenu = () => {
 
 
     const Menu  = [
-
         {
             id: uuid(),
             title: dictionary.AdminRoutes.Home,
@@ -29,30 +29,21 @@ const AdminMenu = () => {
             id: uuid(),
             title: dictionary.AdminRoutes.Agents.title,
             icon: <AiOutlineUsergroupAdd style={{margin:"5px"}}/>,
-            children: [
-                { id: uuid(), link: '#', name:  dictionary.AdminRoutes.Agents.addAgents },
-                { id: uuid(), link: '#', name:  dictionary.AdminRoutes.Agents.listAgents }
-            ]
+            link: `/${pathName.split('/')[1]}/dashboard/agents`
         },
         {
             id: uuid(),
             title: dictionary.AdminRoutes.Zone.title,
             icon: <FaGripHorizontal style={{margin:"5px"}}/>,
-            children: [
-                { id: uuid(), link: '#', name:  dictionary.AdminRoutes.Zone.addZone },
-                { id: uuid(), link: '#', name:  dictionary.AdminRoutes.Zone.listZones }
-            ]
+            link: `/${pathName.split('/')[1]}/dashboard/zone`
         },
         {
             id: uuid(),
-            title: dictionary.AdminRoutes.Parking.title,
-            icon: <FaParking style={{margin:"5px"}}/>,
-            children: [
-                { id: uuid(), link: '#', name:  dictionary.AdminRoutes.Parking.addParking },
-                { id: uuid(), link: '#', name:  dictionary.AdminRoutes.Parking.listParking }
-            ]
-        },
+            title: 'Assignment',
+            icon: <MdAssignmentTurnedIn style={{margin:"5px"}}/>,
+            link: `/${pathName.split('/')[1]}/dashboard/assignment`
 
+        },
 
         /*
         {

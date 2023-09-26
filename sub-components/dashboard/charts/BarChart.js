@@ -10,7 +10,16 @@ const BarChart = () => {
         datasets: [
             {
                 label: "Number Of Reserved Places",
-                backgroundColor: ["rgb(3,129,241)", "#01a127","#871919"],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 1.12)',
+                    'rgba(75, 192, 192, 1.12)',
+                    'rgba(255,67,67,1.12)',
+                ],
+                borderColor: [
+                    'rgb(0,151,255)',
+                    'rgb(0,178,178)',
+                    'rgb(255,0,0)',
+                ],
                 options: {
                     scales: {
                         y: {
@@ -18,6 +27,7 @@ const BarChart = () => {
                         }
                     }
                 },
+                borderWidth:1,
                 data:  NumberOfReservedPlaces.map(item=>item.ReservedPlaces),
             },
         ],

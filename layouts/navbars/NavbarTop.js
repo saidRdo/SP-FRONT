@@ -15,7 +15,7 @@ const NavbarTop = (props) => {
 
 	return (
 		<Navbar expanded="lg" className="navbar-classic navbar navbar-expand-lg">
-			<div className='d-flex justify-content-between w-100'>
+			<div className='d-flex justify-content-between w-100 '>
 				<div className="d-flex align-items-center">
 					<Link
 						href="#"
@@ -24,8 +24,9 @@ const NavbarTop = (props) => {
 						onClick={() => props.data.SidebarToggleMenu(!props.data.showMenu)}>
 						<Menu size="18px" />
 					</Link>
-					<div className="ms-lg-3 d-none d-md-none d-lg-block">
+					<div>
 						{/* Search Form */}
+						<p>Admin Dashboard</p>
 					</div>
 				</div>
 				{/* Quick Menu */}

@@ -1,11 +1,44 @@
 // import node module libraries
-import Link from 'next/link';
-import { ProgressBar, Col, Row, Card, Table, Image } from 'react-bootstrap';
+import { Col, Row, Card } from 'react-bootstrap';
 
 // import required data files
 import StatisticsData from "@/data/dashboard/StatisticsData";
 
+
+import React, { useEffect, useRef } from 'react';
+import $ from 'jquery';
+
 const Statistics = () => {
+    const tableRef = useRef();
+
+    useEffect(() => {
+        if ($.fn.DataTable.isDataTable(tableRef.current)) {
+            return;
+        }
+        // Initialize DataTable
+        $(tableRef.current).DataTable({
+            data:StatisticsData,
+            language:{
+                search:"Search : ",
+                searchPlaceholder:"Search by any info"
+            },
+            columns: [
+                { title: 'ID', data: 'id' },
+                { title: 'Zone', data: 'zone' },
+                { title: 'Parking', data: 'parking' },
+                { title: 'Number of Vehicles', data: 'nbrvehicule' },
+                { title: 'Date', data: 'date' },
+                { title: 'Guardian', data: 'guardian' },
+                { title: 'Percentage', data: 'percentage' },
+                { title: 'Amount', data: 'amount' }
+            ],
+            paging: true,
+            searching: true,
+            scrollY:true,
+            scrollCollapse:true
+        });
+    }, []);
+
     return (
         <Row className="mt-6">
             <Col md={12} xs={12}>
@@ -13,51 +46,10 @@ const Statistics = () => {
                     <Card.Header className="bg-white  py-4">
                         <h4 className="mb-0">Statistics 24 hours ago</h4>
                     </Card.Header>
-                    <Table responsive className="text-nowrap mb-0">
-                        <thead className="table-light">
-                            <tr>
-                                <th>Zone</th>
-                                <th>Parking</th>
-                                <th>Nombre des véhicule</th>
-                                <th>Date</th>
-                                <th>Guardian</th>
-                                <th>Percentage</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {StatisticsData.map((item, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.zone}
-                                        </td>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.parking}
-                                        </td>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.nbrvehicule}
-                                        </td>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.date}
-                                        </td>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.guardian}
-                                        </td>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.percentage}
-                                        </td>
-                                        <td className="align-middle text-dark text-center">
-                                            {item.amount}
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </Table>
-                    <Card.Footer className="bg-white text-center">
-                        <Link href="#" className="link-primary">View All staistics</Link>
-                    </Card.Footer>
+                    <Card.Body>
+                        <table ref={tableRef}/>
+                    </Card.Body>
+
                 </Card>
             </Col>
         </Row>

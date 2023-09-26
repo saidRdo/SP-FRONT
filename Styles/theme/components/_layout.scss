@@ -37,7 +37,7 @@
 
 #page-content.rtl {
   min-height: 100vh;
-  min-width: 0;
+  width: 100%;
   margin-right: 15.625rem;
   margin-left: 0;
   -webkit-transition: margin 0.25s ease-out;
@@ -47,7 +47,7 @@
 }
 #page-content.ltr {
   min-height: 100vh;
-  min-width: 0;
+  width: 100%;
   margin-left: 15.625rem;
   margin-right: 0;
   -webkit-transition: margin 0.25s ease-out;

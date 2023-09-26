@@ -1,4 +1,3 @@
-
 import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
@@ -12,8 +11,9 @@ const LineChart = () => {
         datasets: [
             {
                 label: "Number Of Hours Booked",
-                backgroundColor: "rgb(3,129,241)",
-                borderColor: "rgb(3,129,241)",
+                backgroundColor: "rgba(255,0,0,0.6)",
+                borderColor: "rgb(255,0,0)",
+                borderWidth:2,
                 data: NumberOfHoursBooked.map(item=>item.HoursBooked),
             },
         ],

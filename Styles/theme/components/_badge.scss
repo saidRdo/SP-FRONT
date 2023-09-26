@@ -18,3 +18,9 @@
     display: inline-block !important;
 
 }
+.badge-success{
+    background-color: green;
+    &:hover{
+        background-color: #0e9f6e;
+    }
+}

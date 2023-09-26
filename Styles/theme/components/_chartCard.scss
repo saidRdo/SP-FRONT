@@ -1,18 +1,46 @@
 #db-wrapper.toggled{
   .chartCard {
-    height: 300px;
+    margin: auto;
+    width: 100%;
+  }
+}
+#db-wrapper{
+  .chartCard {
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content:center;
     width: 100%;
   }
 }
+#db-wrapper.toggled{
+  .chartCardPie {
+    margin: auto;
+    width: 100%;
+  }
+}
 #db-wrapper{
-  .chartCard {
-    height: 300px;
+  .chartCardPie {
     display: flex;
     align-items: center;
     justify-content:center;
     width: 100%;
+    margin: 5px 0;
+    canvas{
+      width: fit-content;
+    }
   }
+}
+
+/*
+  ---- Table claims css
+*/
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-gallery img {
+  margin-bottom: 10px;
 }
