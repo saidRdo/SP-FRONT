@@ -12,10 +12,10 @@ $black: #000 !default;
 $red: #dc3545 !default;
 $orange: #fd7e14 !default;
 $yellow: #f59e0b !default;
-$green: #871919 !default;
+$green: #01a127 !default;
 $teal: #20c997 !default;
 $cyan: #0ea5e9 !default;
-$primary: #624bff !default;
+$primary: #0097ff !default;
 $secondary: $gray-600 !default;
 $success: $green !default;
 $info: $cyan !default;
@@ -29,7 +29,7 @@ $light-primary: #e0dcfe !default; // NEW
 $light-secondary: #e9ecef !default; // NEW
 $light-success: #eaf6ec !default; // NEW
 $light-danger: #fbebec !default; // NEW
-$light-warning: #fff3cd !default; // NEW
+$light-warning: #fcdf86 !default; // NEW
 $light-info: #e7fafe !default; // NEW
 $light-dark: #d1cfd8 !default; // NEW
 
@@ -37,9 +37,9 @@ $light-dark: #d1cfd8 !default; // NEW
 $dark-primary: #593cc1 !default; // NEW
 $dark-secondary: #5c596d !default; // NEW
 $dark-success: #139a74 !default; // NEW
-$dark-danger: #ae302e !default; // NEW
+$dark-danger: #cc0e0b !default; // NEW
 $dark-warning: #c28135 !default; // NEW
-$dark-info: #51a0c2 !default; // NEW
+$dark-info: rgba(81, 160, 194, 0.54) !default; // NEW
 
 $theme-colors: () !default;
 $theme-colors: (

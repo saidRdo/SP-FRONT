@@ -19,7 +19,7 @@ const Home = () => {
 
     return (
         <Fragment>
-            <div className="bg-dashboard-header pt-10 pb-21"></div>
+            <div className="bg-dashboard-header pt-10 pb-16"></div>
             <Container fluid className="mt-n22 px-6">
                 <Row>
                     <Col lg={12} md={12} xs={12}>
@@ -30,10 +30,10 @@ const Home = () => {
                     </Col>
                     <Col lg={12} md={12} xs={12} as={"div"} className={"bg-white rounded-bottom smooth-shadow-sm"} style={
                         {
-                            marginTop:"50px"
+                            marginTop:"10px"
                         }
                     }>
-                        <ul className="nav nav-lt-tab px-4" id="pills-tab" role="tablist">
+                        <ul className="nav nav-lt-tab" id="pills-tab" role="tablist">
                             <li className="nav-item">
                                 <Link className={`nav-link ${NextTap===1?"active":""}`} href="#" onClick={(event)=> {
                                     event.preventDefault();
@@ -44,13 +44,13 @@ const Home = () => {
                                 <Link className={`nav-link ${NextTap===2?"active":""}`} href="#" onClick={(event)=> {
                                     event.preventDefault();
                                     setNextTap(2)
-                                }}>Tap2</Link>
+                                }}>Tab2</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link ${NextTap===3?"active":""}`} href="#" onClick={(event)=> {
                                     event.preventDefault();
                                     setNextTap(3)
-                                }}>Tap3</Link>
+                                }}>Tab3</Link>
                             </li>
                         </ul>
                     </Col>
@@ -60,9 +60,9 @@ const Home = () => {
                         case 1:
                             return <DashboardTap/>;
                         case 2:
-                            return <h1>Tap 2</h1>;
+                            return <h1>Tab 2</h1>;
                         case 3:
-                            return <h1>Tap 3</h1>
+                            return <h1>Tab 3</h1>
                         default:
                             return null
                     }

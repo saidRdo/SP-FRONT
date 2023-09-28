@@ -90,12 +90,6 @@ const AdminMenu = () => {
             icon: <AiFillSetting style={{margin:"5px"}}/>,
             link: `/${pathName.split('/')[1]}/dashboard/settings`,
         },
-        {
-            id: uuid(),
-            title: "Login ",
-            icon: <AiFillSetting style={{margin:"5px"}}/>,
-            link: `/${pathName.split('/')[1]}/authentication/sign-in`,
-        },
     ];
 
     return Menu;

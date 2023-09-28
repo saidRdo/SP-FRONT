@@ -24,10 +24,6 @@ const NavbarTop = (props) => {
 						onClick={() => props.data.SidebarToggleMenu(!props.data.showMenu)}>
 						<Menu size="18px" />
 					</Link>
-					<div>
-						{/* Search Form */}
-						<p>Admin Dashboard</p>
-					</div>
 				</div>
 				{/* Quick Menu */}
 				<Nav className="navbar-right-wrap ms-2 d-flex nav-top-wrap">

@@ -1,0 +1,26 @@
+
+.notfound{
+  width: 100%;
+  .not-found{
+    display: flex;
+    justify-content: center;
+  }
+  .notfound-image{
+    img{
+      width: 400px;
+      height: 300px;
+    }
+  }
+  .notfound-body{
+    text-align: center;
+    p{
+      padding: 10px;
+    }
+  }
+  .HomeBtn{
+    padding: 10px 20px;
+    background-color: $primary;
+    border-radius: 5px;
+    color: $white;
+  }
+}

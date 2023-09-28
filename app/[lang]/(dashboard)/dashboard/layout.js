@@ -8,15 +8,17 @@ import 'datatables.net-dt/css/jquery.dataTables.min.css';
 import NavbarVertical from '@/layouts/navbars/NavbarVertical';
 import NavbarTop from '@/layouts/navbars/NavbarTop';
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
+import useMounted from "@/hooks/useMounted";
 
 export default function DashboardLayout({ children }) {
     const dictionary = useDictionary();
+    const hasMounted =useMounted();
 
     const [showMenu, setShowMenu] = useState(true);
     const ToggleMenu = () => {
         return setShowMenu(!showMenu);
     };
-
+    if (!hasMounted) return <div className={"screen"}>Loading ... </div>
     return (
         <div id="db-wrapper" className={`bg-global-content ${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} ${showMenu ? '' : 'toggled'} `}>
             <div className={`navbar-vertical ${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} navbar`}>

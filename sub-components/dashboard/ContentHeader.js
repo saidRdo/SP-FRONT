@@ -10,20 +10,19 @@ export const ContentHeader = () => {
     const defaultZoneSelected="sm";
 
     return (
-        <div className="d-flex justify-content-between align-items-center flex-wrap-reverse">
-            <div className={"mb-0"}>
-                <Card.Header className="py-0 mb-2">
-                    <h3 className="mb-0 text-white">City : Casablanca</h3>
+        <div className="d-flex justify-content-between align-items-center flex-wrap">
+                <Card.Header className="py-0 mb-1">
+                    <h4 className="mb-0 text-white">City : Casablanca</h4>
                 </Card.Header>
-                <div className="d-flex align-items-center mb-2 mb-lg-0">
-                    <div className={"d-flex align-items-center mb-2 mb-lg-0"}>
+                <div className="d-flex align-items-center mb-1 mb-lg-0">
+                    <div className={"d-flex align-items-center mb-1 mb-lg-0"}>
                         <h4 className="mb-0 text-white">Zone : </h4>
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="demo-simple-select-standard"
                                 defaultValue={defaultZoneSelected}
-                                className={"text-white"}
+                                className={"text-white bg-blue-400"}
                             >
                                 {
                                     ZoneOptions.map(item=><MenuItem value={item.value}>{item.label}</MenuItem> )
@@ -32,7 +31,6 @@ export const ContentHeader = () => {
                         </FormControl>
                     </div>
                 </div>
-            </div>
         </div>
     )
 }

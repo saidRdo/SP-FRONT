@@ -1,4 +1,4 @@
-export const StatisticsData = [
+const StatisticsData = [
     {
         id: 1,
         zone: "Bouskoura",

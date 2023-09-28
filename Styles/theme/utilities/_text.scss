@@ -21,3 +21,11 @@ h4,
         color: $primary !important;
     }
 }
+.lbl-password-copied{
+    padding: 2px;
+    color: $success;
+    text-align: center;
+    &:empty{
+        display: none;
+    }
+}

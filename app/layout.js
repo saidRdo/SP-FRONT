@@ -6,6 +6,11 @@ import {DictionaryProvider} from "@/components/DictionaryProvider/DictionaryProv
 
 // import theme style scss file
 import '@/Styles/theme.scss';
+//Style React primer
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import useMounted from "@/hooks/useMounted";
+
 
 export default async function Root({ children, params }) {
     const dictionary = await getDictionary(params.lang);
