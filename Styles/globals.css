@@ -67,3 +67,23 @@ body {
     stroke-dashoffset: -124px;
   }
 }
+
+
+.switch-lang{
+  display:flex;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.switch-lang > li{
+  display:flex;
+  align-items: center;
+  padding:5px 10px;
+
+}
+.switch-lang > .active-lng > a{
+  color:white;
+}
+.switch-lang .active-lng{
+  border-radius: 5px;
+  background-color: #808083;
+}

@@ -86,7 +86,7 @@ const SignIn = () => {
                                                 {dictionary.LoginPage.ForgotPassword}
                                             </Link>
                                         </div>
-                                        <div className={"mb-4 "}>
+                                        <div>
                                             <LocaleSwitcher />
                                         </div>
                                     </div>

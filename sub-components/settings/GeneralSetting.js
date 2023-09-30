@@ -132,7 +132,7 @@ const GeneralSetting = ({lang}) => {
                   </Col>
 
                   <Col md={{ offset: 4, span: 8 }} xs={12} className={`mt-4  ${lang?.lang==="ar"?"offset-rtl":''}`}>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" className={"text-white"}  type="submit">
                       {lang?.SettingsPage?.SaveChanges}
                     </Button>
                   </Col>

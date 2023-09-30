@@ -34,7 +34,7 @@ const EmailSetting = ({lang}) => {
                                   id="newEmailAddress" required />
                   </Col>
                   <Col md={{ offset: 4, span: 8 }} xs={12} className={`mt-3 ${lang?.lang==="ar"?"offset-rtl":''}`}>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" className={"text-white"} type="submit">
                       {lang?.SettingsPage?.SaveChanges}
                     </Button>
                   </Col>
@@ -86,7 +86,7 @@ const EmailSetting = ({lang}) => {
                       <li>{lang?.SettingsPage?.ComponentEmailSetting?.ComponentChangePassword?.Form?.Notes.requirement3}</li>
                       <li>{lang?.SettingsPage?.ComponentEmailSetting?.ComponentChangePassword?.Form?.Notes.requirement4}</li>
                     </ul>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" className={"text-white"} type="submit">
                       {lang?.SettingsPage?.SaveChanges}
                     </Button>
                   </Col>

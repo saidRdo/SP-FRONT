@@ -67,7 +67,7 @@ const SigninButton = ({email,password}) => {
     }
 
     return(
-        <Button variant="primary" type="submit" onClick={(e)=>ouSubmit(e)}>
+        <Button variant="primary" type="submit" className={"text-white"} onClick={(e)=>ouSubmit(e)}>
             {
                 !loading ?
                     dictionary.LoginPage.LoginButton :

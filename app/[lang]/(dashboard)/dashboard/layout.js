@@ -18,7 +18,15 @@ export default function DashboardLayout({ children }) {
     const ToggleMenu = () => {
         return setShowMenu(!showMenu);
     };
-    if (!hasMounted) return <div className={"screen"}>Loading ... </div>
+
+    if (!hasMounted){
+        return (
+            <div className={"screen"}>
+                <img src={"/images/brand/logo/lx-logo.png"}/>
+            </div>
+        )
+    }
+
     return (
         <div id="db-wrapper" className={`bg-global-content ${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} ${showMenu ? '' : 'toggled'} `}>
             <div className={`navbar-vertical ${dictionary?.lang == 'ar' ? 'rtl' : 'ltr'} navbar`}>
