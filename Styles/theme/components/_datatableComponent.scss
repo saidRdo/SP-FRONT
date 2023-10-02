@@ -1,0 +1,18 @@
+.datatableComponent{
+  .search{
+    display: flex;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    input{
+      outline: 1px solid $gray-500;
+      border-radius: 2px;
+      padding: 5px;
+      margin: 0 5px;
+      &:focus{
+        outline: 2px solid $blue-400;
+      }
+    }
+  }
+}

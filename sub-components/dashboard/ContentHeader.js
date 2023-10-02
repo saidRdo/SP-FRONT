@@ -2,7 +2,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ZoneOptions from "@/data/select/ZoneOptions";
+import ZoneOptions from "@/data/Zones/ZoneOptions";
 import {Card} from "react-bootstrap";
 
 export const ContentHeader = () => {

@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }) {
     if (!hasMounted){
         return (
             <div className={"screen"}>
-                <img src={"/images/brand/logo/lx-logo.png"}/>
+                <img src={"/images/brand/logo/xl-logo.png"}/>
             </div>
         )
     }

@@ -2,10 +2,11 @@
 import {Button, Card, Col, Container, Form, Modal, Row} from "react-bootstrap";
 import React, {Fragment, useState} from "react";
 import CreateZone from "@/sub-components/dashboard/zone/CreateZone";
-import {FormSelect} from "@/widgets";
 import MultipleSelectChip from "@/widgets/form-select/multi-select";
 import CreateAgent from "@/sub-components/dashboard/CreateAgent";
 import useMounted from "@/hooks/useMounted";
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 
 
 export default function Assignment(){
@@ -43,7 +44,13 @@ export default function Assignment(){
                                                 Agent
                                             </Form.Label>
                                             <Col md={4} xs={8}>
-                                                <Form.Control as={FormSelect} placeholder="Sélectionnez l'agent" id="Agent" options={AgentsOptions} />
+                                                <Autocomplete
+                                                    disablePortal
+                                                    id="Agent"
+                                                    options={AgentsOptions}
+                                                    sx={{ width: 300 }}
+                                                    renderInput={(params) => <TextField {...params} label="Agents" />}
+                                                />
                                             </Col>
                                             <Col md={4} xs={4}>
                                                 <Fragment>

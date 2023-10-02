@@ -29,18 +29,17 @@ function getStyles(name, personName, theme) {
     };
 }
 
-export default function MultipleSelectChip({List}) {
+export default function MultipleSelectChip({List,defaultZones}) {
 
     const names = List;
     const theme = useTheme();
-    const [itemSelected, setItemSelected] = React.useState([]);
+    const [itemSelected, setItemSelected] = React.useState(defaultZones?defaultZones:[]);
 
     const handleChange = (event) => {
         const {
             target: { value },
         } = event;
         setItemSelected(
-            // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
         );
     };

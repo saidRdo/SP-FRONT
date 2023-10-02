@@ -8,7 +8,7 @@ const StatisticsData = [
         date: "01/02/2023",
         Claim: "Le guardian n'est pas poli",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 2,
@@ -41,7 +41,7 @@ const StatisticsData = [
         date: "04/02/2023",
         Claim: "Fourth claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 5,
@@ -63,7 +63,7 @@ const StatisticsData = [
         date: "06/02/2023",
         Claim: "Sixth claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 7,
@@ -74,7 +74,7 @@ const StatisticsData = [
         date: "07/02/2023",
         Claim: "Seventh claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 8,
@@ -85,7 +85,7 @@ const StatisticsData = [
         date: "08/02/2023",
         Claim: "Eighth claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 9,
@@ -96,7 +96,7 @@ const StatisticsData = [
         date: "09/02/2023",
         Claim: "Ninth claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 10,
@@ -118,7 +118,7 @@ const StatisticsData = [
         date: "11/02/2023",
         Claim: "Eleventh claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 12,
@@ -129,7 +129,7 @@ const StatisticsData = [
         date: "12/02/2023",
         Claim: "Twelfth claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 13,
@@ -151,7 +151,7 @@ const StatisticsData = [
         date: "14/02/2023",
         Claim: "Fourteenth claim",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg","https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
-        status: 'En cours de traitement'
+        status: 'En cours'
     },
     {
         id: 15,
@@ -162,7 +162,7 @@ const StatisticsData = [
         date: "15/02/2023",
         Attachment:["https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg","https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg","https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg","https://www.mascotte-assurances.fr/wp-content/uploads/2022/10/shutterstock_575344744.jpg"],
         Claim: "Fifteenth claim",
-        status: 'En cours de traitement'
+        status: 'En cours'
     }
 ];
 export default StatisticsData;
