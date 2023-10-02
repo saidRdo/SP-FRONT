@@ -8,11 +8,7 @@ import { PageHeading } from 'widgets'
 // import sub components
 import {
   AboutMe,
-  ActivityFeed,
-  MyTeam,
-  ProfileHeader,
-  ProjectsContributions,
-  RecentFromBlog
+  ProfileHeader
 } from '@/sub-components'
 
 const Profile = () => {

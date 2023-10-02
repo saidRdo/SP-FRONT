@@ -1,7 +1,6 @@
 'use client'
 // import node module libraries
 import { useState } from 'react';
-import 'datatables.net-dt/css/jquery.dataTables.min.css';
 
 
 // import sub components
