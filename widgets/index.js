@@ -8,11 +8,8 @@ import { DropFiles } from 'widgets/dropfiles/DropFiles';
 import StatRightTopIcon from 'widgets/stats/StatRightTopIcon';
 
 export {
-   HighlightCode,
    PageHeading,
    FormSelect,
    PricingCard,
-   FeatureLeftTopIcon,
-   DropFiles,
-   StatRightTopIcon
+   DropFiles
 };
