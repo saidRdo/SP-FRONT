@@ -1,7 +1,7 @@
 const ZoneOptions = [
-    { value: 'sm', label: 'Sidi Maarouf' },
-    { value: 'bsk', label: 'Bouskoura' },
-    { value: 'he', label: 'Hay Elhassany' },
-    { value: '2m', label: '2 Mars' }
+    { value: 'Sidi maarouf', label: 'Sidi Maarouf' },
+    { value: 'Bouskoura', label: 'Bouskoura' },
+    { value: 'Agdal', label: 'Rabat Agdal' },
+    { value: 'Marina', label: 'Marina' }
 ];
 export default ZoneOptions;

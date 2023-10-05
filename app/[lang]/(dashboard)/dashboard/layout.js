@@ -44,7 +44,7 @@ export default function DashboardLayout({ children }) {
                         }}
                     />
                 </div>
-                {children}
+                    {!hasMounted?<div className={"screen"}><img src={"/images/brand/logo/xl-logo.png"}/></div>:children}
             </div>
         </div>
     )

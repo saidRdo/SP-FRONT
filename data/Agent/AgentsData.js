@@ -14,7 +14,7 @@ const AgentsData=[
         picture:"",
         email:"said@email.com",
         city:"Rabat",
-        zone:["Rabat zone"],
+        zone:["Agdal"],
         created_at:"2022/04/13"
     },
     {

@@ -91,13 +91,13 @@ const Zone = () => {
         <Row className="mt-5 ml-5 mr-5 justify-content-center">
             <Col xl={12} lg={12} md={12} xs={12}>
                 <Card className={"ml-5 mr-5"}>
-                    <Card.Header className="bg-white py-4 d-flex justify-content-between align-items-center">
-                        <h4 className="mb-0">List of zone</h4>
+                    <Card.Header className="bg-white py-4 d-flex justify-content-between align-items-center flex-wrap">
+                        <h4 className="xs-mb-4">List of zone</h4>
                         <div className="card flex justify-content-center">
                             <Button className={"d-flex align-items-center text-white"} onClick={() => setScrollShow(true)} >
                                 <BiLinkExternal className={"ml-2 mr-2"}/> Create new zone
                             </Button>
-                            <Dialog header="Create new agent" visible={scrollShow} maximizable style={{ width: '50vw' }} onHide={() => setScrollShow(false)}>
+                            <Dialog header="Create new zone"  style={{width:"100vh"}} visible={scrollShow} maximizable onHide={() => setScrollShow(false)}>
                                 <CreateZone/>
                             </Dialog>
                         </div>
@@ -107,7 +107,7 @@ const Zone = () => {
                             header="Assignment to a zone"
                             visible={AssigmnetModal}
                             maximizable
-                            style={{ width: '50vw' }}
+                            style={{width:"100vh"}}
                             onHide={() => setAssigmnetModal(false)}
                         >
                             {selectedUser && <Assignment agent={selectedUser.agent} zones={selectedUser.zone} from={"zone"}/>}

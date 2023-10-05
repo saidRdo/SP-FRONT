@@ -8,9 +8,6 @@ import ProfileHeader from 'sub-components/profile/ProfileHeader';
 import ProjectsContributions from 'sub-components/profile/ProjectsContributions';
 import RecentFromBlog from 'sub-components/profile/RecentFromBlog';
 
-// sub components for /pages/billing
-import CurrentPlan from 'sub-components/billing/CurrentPlan';
-import BillingAddress from 'sub-components/billing/BillingAddress';
 
 // sub components for /pages/settings
 import EmailSetting from 'sub-components/settings/EmailSetting';
@@ -27,8 +24,6 @@ export {
    ProjectsContributions,
    RecentFromBlog,
 
-   CurrentPlan,
-   BillingAddress,
 
 //Setting
    EmailSetting,  

@@ -37,13 +37,6 @@ const AdminMenu = () => {
             icon: <FaGripHorizontal style={{margin:"5px"}}/>,
             link: `/${pathName.split('/')[1]}/dashboard/zone`
         },
-        {
-            id: uuid(),
-            title: 'Assignment',
-            icon: <MdAssignmentTurnedIn style={{margin:"5px"}}/>,
-            link: `/${pathName.split('/')[1]}/dashboard/assignment`
-
-        },
 
         /*
         {

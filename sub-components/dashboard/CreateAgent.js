@@ -9,19 +9,7 @@ const CreateAgent = () => {
         { value: 'per2', label: 'per2' },
         { value: 'per3', label: 'per3' }
     ];
-    const [avatar,setAvatar]=useState()
-    const handleChangeAvatar=(data)=>{
 
-        const imageFile = data.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(imageFile);
-        console.log("reader",reader)
-        reader.onload = function(evt){
-            //console.log("result",evt.target.result)
-            setAvatar(evt.target.result)
-        }
-
-    }
 
     const GeneratePassword=(len)=>{
         let password="";
@@ -47,31 +35,6 @@ const CreateAgent = () => {
             <Card.Body>
                 <div>
                     <Form>
-                        <Row className="align-items-center mb-8">
-                            <Col md={4} className="mb-3 mb-md-0">
-                                <h5 className="mb-0">
-                                    Avatar
-                                </h5>
-                            </Col>
-                            <Col md={8} xs={12} >
-                                <div className="d-flex align-items-center">
-                                    <div className="me-3">
-                                        <Image src={avatar?avatar:"/images/avatar/avatar-5.jpg"} className="rounded-circle avatar avatar-lg cursor-pointer" alt="" onClick={()=>document.getElementById('avatarFromSetting').click()}/>
-                                    </div>
-                                    <div>
-                                        <input type={"file"} id={"avatarFromSetting"} hidden={true} onChange={(e)=>handleChangeAvatar(e)}/>
-                                        <Button variant="outline-white" className="me-2 ml-2 mr-2" type="submit"
-                                                onClick={()=>document.getElementById('avatarFromSetting').click()}>
-                                            Change
-                                        </Button>
-                                        <Button variant="outline-white" type="submit"
-                                                onClick={()=>setAvatar(null)}>
-                                            Remove
-                                        </Button>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
 
                         <Row className="mb-3">
                             <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="username">

@@ -1,21 +1,24 @@
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import React, {Fragment, useState} from "react";
-import MultipleSelectChip from "@/widgets/form-select/multi-select";
 import CreateZone from "@/sub-components/dashboard/zone/CreateZone";
 import {Dialog} from "primereact/dialog";
 import CreateAgent from "@/sub-components/dashboard/CreateAgent";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import AgentList from "@/data/Agent/ListAgents";
-import ZoneList from "@/data/Zones/ListZones";
+import ZoneOptions from "@/data/Zones/ZoneOptions";
+import AgentOptions from "@/data/Agent/AgentOptions";
+import { MultiSelect } from 'primereact/multiselect';
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
+
 
 function Assignment({agent,zones,from}){
     const [scrollShowZone, setScrollShowZone] = useState(false);
+    const [selectedZone, setSelectedZone] = useState(zones?zones:null);
+    const [selectedAgent, setSelectedAgent] = useState('');
+
 
     switch (from){
         case "agent":
             return(
-                <Col xl={12} lg={12} md={12} xs={12}>
                     <Card>
                         <Card.Body>
                             <Form>
@@ -23,26 +26,25 @@ function Assignment({agent,zones,from}){
                                     <Form.Label className="col-sm-4" htmlFor="Agent">
                                         Agent
                                     </Form.Label>
-                                    <Col md={8} xs={8}>
+                                    <Col md={12} xs={12}>
                                         <Form.Control type="text" value={agent} id="Agnet" disabled={true}/>
                                     </Col>
                                 </Row>
                                 <Row className="mb-3">
                                     <Form.Label className="d-flex col-sm-4" htmlFor="Zone">
                                         Zone
-                                        <Col className={"ml-2 mr-2"}>
-                                            <Fragment>
-                                                <Button className={"text-white btn-sm"} variant="primary" onClick={() => setScrollShowZone(!scrollShowZone)}>
-                                                    +
-                                                </Button>
-                                                <Dialog header="Create new agent" visible={scrollShowZone} maximizable style={{ width: '50vw' }} onHide={() => setScrollShowZone(false)}>
-                                                    <CreateZone/>
-                                                </Dialog>
-                                            </Fragment>
+                                        <Col className={"ml-2 mr-2"} md={12} xs={12} sm={12}>
+                                            <Button className={"text-white btn-sm"} variant="primary" onClick={() => setScrollShowZone(!scrollShowZone)}>
+                                                +
+                                            </Button>
+                                            <Dialog header="Create new zone" style={{width:"100vh"}} visible={scrollShowZone} maximizable onHide={() => setScrollShowZone(false)}>
+                                                <CreateZone/>
+                                            </Dialog>
                                         </Col>
                                     </Form.Label>
-                                    <Col md={8} xs={8} sm={12}>
-                                        <MultipleSelectChip List={ZoneList} defaultZones={zones}/>
+                                    <Col md={12} xs={12} sm={12}>
+                                        <MultiSelect value={selectedZone} onChange={(e) => setSelectedZone(e.value)} options={ZoneOptions} optionLabel="label" display="chip"
+                                                     placeholder="Select zone" style={{width:"100%"}} />
                                     </Col>
                                 </Row>
 
@@ -56,7 +58,6 @@ function Assignment({agent,zones,from}){
 
                         </Card.Body>
                     </Card>
-                </Col>
             )
         case "zone":
             return(
@@ -67,33 +68,30 @@ function Assignment({agent,zones,from}){
                                 <Row className="mb-3 align-items-center">
                                     <Form.Label className="col-sm-4" htmlFor="Agent">
                                         Agent
-                                    </Form.Label>
-                                    <Col md={8} xs={8}>
-                                        <Autocomplete
-                                            disablePortal
-                                            id="Agent"
-                                            options={AgentList}
-                                            sx={{ width: 300 }}
-                                            defaultValue={agent}
-                                            renderInput={(params) => <TextField {...params} label="Agents" />}
-                                        />
-                                        <Col className={"ml-2 mr-2"}>
                                             <Fragment>
-                                                <Button className={"text-white btn-sm"} variant="primary" onClick={() => setScrollShowZone(!scrollShowZone)}>
+                                                <Button className={"text-white btn-sm ml-4"} variant="primary" onClick={() => setScrollShowZone(!scrollShowZone)}>
                                                     +
                                                 </Button>
-                                                <Dialog header="Create new agent" visible={scrollShowZone} maximizable style={{ width: '50vw' }} onHide={() => setScrollShowZone(false)}>
+                                                <Dialog header="Create new agent"  style={{width:"100vh"}} visible={scrollShowZone} maximizable onHide={() => setScrollShowZone(false)}>
                                                     <CreateAgent/>
                                                 </Dialog>
                                             </Fragment>
-                                        </Col>
+                                    </Form.Label>
+                                    <Col md={8} xs={12} sm={12}>
+                                        <Autocomplete
+                                            disablePortal
+                                            id="Agent"
+                                            options={AgentOptions}
+                                            defaultValue={agent}
+                                            renderInput={(params) => <TextField {...params} label="Movie" />}
+                                        />
                                     </Col>
                                 </Row>
                                 <Row className="mb-3">
                                     <Form.Label className="d-flex col-sm-4" htmlFor="Zone">
                                         Zone
                                     </Form.Label>
-                                    <Col md={8} xs={8} sm={12}>
+                                    <Col md={8} xs={12} sm={12}>
                                         <Form.Control type="text" value={zones} id="Zone" disabled={true}/>
                                     </Col>
                                 </Row>

@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { Col, Card, Dropdown, Image } from 'react-bootstrap';
 import { MoreVertical } from 'react-feather';
 
-// import required data files
-import ProjectsContributionsData from 'data/profile/ProjectsContributionsData';
 
 const ProjectsContributions = () => {
 

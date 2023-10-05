@@ -80,15 +80,16 @@ const SignIn = () => {
                                     <div className="d-grid">
                                         <SigninButton email={email} password={password}/>
                                     </div>
-                                    <div className="d-md-flex justify-content-between mt-4">
+                                    <div className="d-md-flex justify-content-between flex-wrap mt-4">
                                         <div>
-                                            <Link href="#" className="text-inherit fs-5">
+                                            <Link href="#" className="text-primary fs-5 pb-2">
                                                 {dictionary.LoginPage.ForgotPassword}
                                             </Link>
                                         </div>
-                                        <div>
-                                            <LocaleSwitcher />
-                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className={"d-flex justify-content-center"}>
+                                        <LocaleSwitcher />
                                     </div>
                                 </div>
                             </Form>}
