@@ -1,20 +1,40 @@
-import {Button, Card, Col, Form, Row} from "react-bootstrap";
-import React, {Fragment, useState} from "react";
+import {Button, Card, Col, Form, Row, Spinner} from "react-bootstrap";
+import React, {Fragment, useEffect, useState} from "react";
 import CreateZone from "@/sub-components/dashboard/zone/CreateZone";
 import {Dialog} from "primereact/dialog";
 import CreateAgent from "@/sub-components/dashboard/CreateAgent";
-import ZoneOptions from "@/data/Zones/ZoneOptions";
-import AgentOptions from "@/data/Agent/AgentOptions";
 import { MultiSelect } from 'primereact/multiselect';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+import fetchZones from "@/data/Zones/ZoneDataList";
+import AgentOptions from "@/data/Agent/AgentOptions";
 
 
-function Assignment({agent,zones,from}){
+function Assignment({agent,zones,from,cityID}){
     const [scrollShowZone, setScrollShowZone] = useState(false);
-    const [selectedZone, setSelectedZone] = useState(zones?zones:null);
+    const [selectedZone, setSelectedZone] = useState(zones?zones:0);
     const [selectedAgent, setSelectedAgent] = useState('');
+    const [ZoneOptions,setOptions]=useState([]);
+    const [loading,setloading]=useState(true)
+    const [AgentOption,setAgentOptions]=useState([]);
 
+
+    if (cityID){
+        fetchZones(cityID)
+            .then(zones=>{
+                if (zones){
+                    setloading(false)
+                    return setOptions(zones.map(zone=>{
+                        return {value:zone.id, label:zone.name}
+                    }))
+                }
+            })
+            .catch(error=>console.error("axios catch",error));
+    }
+
+    useEffect(() => {
+        AgentOptions().then(resp=>setAgentOptions(resp)).catch(error=>console.error(error))
+    }, []);
 
     switch (from){
         case "agent":
@@ -43,8 +63,18 @@ function Assignment({agent,zones,from}){
                                         </Col>
                                     </Form.Label>
                                     <Col md={12} xs={12} sm={12}>
-                                        <MultiSelect value={selectedZone} onChange={(e) => setSelectedZone(e.value)} options={ZoneOptions} optionLabel="label" display="chip"
-                                                     placeholder="Select zone" style={{width:"100%"}} />
+                                        {
+                                            loading ?
+                                                <div className="d-flex justify-content-center">
+                                                    <Spinner animation="border" role="status">
+                                                        <span className="visually-hidden">Loading...</span>
+                                                    </Spinner>
+                                                </div>
+                                                :
+                                                <MultiSelect value={zones} onChange={(e) => setSelectedZone(e.value)} options={ZoneOptions} optionLabel="label" display="chip"
+                                                             placeholder="Select zone" style={{width:"100%"}} />
+                                        }
+
                                     </Col>
                                 </Row>
 
@@ -81,9 +111,9 @@ function Assignment({agent,zones,from}){
                                         <Autocomplete
                                             disablePortal
                                             id="Agent"
-                                            options={AgentOptions}
+                                            options={AgentOption}
                                             defaultValue={agent}
-                                            renderInput={(params) => <TextField {...params} label="Movie" />}
+                                            renderInput={(params) => <TextField {...params} label="Agent" />}
                                         />
                                     </Col>
                                 </Row>

@@ -42,39 +42,37 @@ const SigninButton = ({email,password}) => {
                 return Errorpassword.textContent = `${dictionary.LoginPage.PasswordErrors.InvalidPassword}`;
             }
         }
-/*
+
           signIn("credentials",{
                 email:email,
                 password:password,
                 redirect:false
             }).then(collback=>{
 
-                setloading(false)
-                // console.log(collback)
-
+                //console.log(collback)
               if (collback.error){
+                  setloading(false)
                   document.querySelector('#password').value=""
                   document.querySelector('#ErrorEmail').textContent=`${dictionary.LoginPage.BadCredentials}`;
               }
               if (collback.ok && !collback.error){
                   router.push("/dashboard")
-                  console.log("success")
               }
-          }).catch(error=>console.log(error))*/
+          }).catch(error=>console.error(error))
 
 
 
     }
 
     return(
-        <Button variant="primary" type="submit" className={"text-white"} onClick={(e)=>ouSubmit(e)}>
+        <Button variant="primary" type="submit" className={"text-white"} onClick={(e)=>ouSubmit(e)} disabled={loading}>
             {
                 !loading ?
                     dictionary.LoginPage.LoginButton :
                     <svg
                         className="ring"
                         viewBox="25 25 50 50"
-                        stroke-width="5"
+                        strokeWidth="5"
                     >
                         <circle cx="50" cy="50" r="20" />
                     </svg>

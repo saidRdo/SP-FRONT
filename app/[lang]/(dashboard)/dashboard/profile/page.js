@@ -10,22 +10,25 @@ import {
   AboutMe,
   ProfileHeader
 } from '@/sub-components'
+import {useSession} from "next-auth/react";
 
 const Profile = () => {
-  return (
+  const {data:session}=useSession();
+
+    return (
     <Container fluid className="p-6">
       {/* Page Heading */}
       <PageHeading heading="Overview"/>
 
       {/* Profile Header  */}
-      <ProfileHeader />
+      <ProfileHeader user={session?.user?.admin}/>
 
       {/* content */}
       <div className="py-6">
         <Row>
 
           {/* About Me */}
-          <AboutMe />
+          <AboutMe user={session?.user?.admin}/>
 
           {/* Projects Contributions
           <ProjectsContributions />*/}

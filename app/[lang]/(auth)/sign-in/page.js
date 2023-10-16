@@ -39,13 +39,11 @@ const SignIn = () => {
                             <Link href="#"><Image src="../../images/brand/logo/sm-logo.png" className="m-auto" alt="" /></Link>
                             <p className="m-auto">{dictionary.LoginPage.LoginTitle}</p>
                         </div>
-                        {/* Form */}
-                        {hasMounted &&
                             <Form>
                                 {/* Username */}
-                                <Form.Group className="mb-3" controlId="username">
+                                <Form.Group className="mb-3">
                                     <Form.Label>{dictionary.LoginPage.LoginEmailInput}</Form.Label>
-                                    <Form.Control type="email" name="username" placeholder="Johane@example.com" required=""
+                                    <Form.Control type="email" name="username"  placeholder="Johane@example.com" required=""
                                                   defaultValue={email}
                                                   id={"email"}
                                                   onChange={(e)=>setEmail(e.target.value)}
@@ -55,7 +53,7 @@ const SignIn = () => {
                                 </Form.Group>
 
                                 {/* Password */}
-                                <Form.Group className="mb-3" controlId="password">
+                                <Form.Group className="mb-3">
                                     <Form.Label>{dictionary.LoginPage.LoginPasswordInput}</Form.Label>
                                     <Form.Control name="password"
                                                   defaultValue={password}
@@ -92,9 +90,7 @@ const SignIn = () => {
                                         <LocaleSwitcher />
                                     </div>
                                 </div>
-                            </Form>}
-
-
+                            </Form>
                     </Card.Body>
                 </Card>
             </Col>

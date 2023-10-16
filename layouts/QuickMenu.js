@@ -17,8 +17,9 @@ import 'simplebar/dist/simplebar.min.css';
 
 // import hooks
 import useMounted from '@/hooks/useMounted';
-import {useSession} from "next-auth/react";
+import {signOut} from "next-auth/react";
 import dynamic from "next/dynamic";
+import axios from "axios";
 
 const QuickMenu = (props) => {
 
@@ -27,7 +28,17 @@ const QuickMenu = (props) => {
     const isDesktop = useMediaQuery({
         query: '(min-width: 1224px)'
     })
-    const {data:session}=useSession()
+
+    const handleSignOut = ()=> {
+        axios.post("http://localhost:8001/api/v1/auth/logout",{
+            refreshToken : props?.refreshToken
+        }).then(res=>{
+
+            if (res.status===200 ){
+                signOut()
+            }
+        }).catch(error=>console.error(error))
+    }
 
     const Notifications = () => {
         return (
@@ -59,8 +70,6 @@ const QuickMenu = (props) => {
             </SimpleBar>
         );
     }
-
-
 
     const QuickMenuDesktop = () => {
         return (
@@ -110,7 +119,7 @@ const QuickMenu = (props) => {
                     className="rounded-circle"
                     id="dropdownUser">
                     <div className="avatar avatar-md avatar-indicators avatar-online">
-                        <Image alt="avatar" src={'/images/avatar/avatar-1.jpg'} className="rounded-circle" />
+                        <Image alt="avatar" src={`${props?.user?.picture}`} className="rounded-circle" />
                     </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
@@ -121,7 +130,7 @@ const QuickMenu = (props) => {
                     >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
-                                <h5 className="mb-1"> OneDustry </h5>
+                                <h5 className="mb-1"> {props?.user?.username}</h5>
                                 <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
@@ -129,7 +138,7 @@ const QuickMenu = (props) => {
                     <Dropdown.Item href={`/${props.langauge}/dashboard/settings`} >
                         <i className="fe fe-settings me-2"></i> Account Settings
                     </Dropdown.Item>
-                    <Dropdown.Item>
+                    <Dropdown.Item onClick={()=>handleSignOut()}>
                         <i className="fe fe-power me-2"></i>Sign Out
                     </Dropdown.Item>
                 </Dropdown.Menu>
@@ -188,7 +197,7 @@ const QuickMenu = (props) => {
                     >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
-                                <h5 className="mb-1"> OneDustry </h5>
+                                <h5 className="mb-1"> {props?.user?.admin?.username} </h5>
                                 <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
@@ -196,7 +205,7 @@ const QuickMenu = (props) => {
                     <Dropdown.Item href={`/${props.langauge}/dashboard/settings`}>
                         <i className="fe fe-settings me-2"></i> Account Settings
                     </Dropdown.Item>
-                    <Dropdown.Item>
+                    <Dropdown.Item onClick={()=>handleSignOut()}>
                         <i className="fe fe-power me-2"></i>Sign Out
                     </Dropdown.Item>
                 </Dropdown.Menu>

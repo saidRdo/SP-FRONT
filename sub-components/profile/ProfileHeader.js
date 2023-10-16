@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Col, Row, Image } from 'react-bootstrap';
 import EditProfile from "@/sub-components/profile/edit-profile/EditProfile";
 
-const ProfileHeader = () => {
+const ProfileHeader = ({user}) => {
   return (
     <Row className="align-items-center">
       <Col xl={12} lg={12} md={12} xs={12}>
@@ -15,21 +15,18 @@ const ProfileHeader = () => {
             <div className="d-flex align-items-center">
               {/* avatar */}
               <div className="avatar-xxl avatar-indicators avatar-online me-2 position-relative d-flex justify-content-end align-items-end mt-n10">
-                <Image src="/images/avatar/avatar-1.jpg" className="avatar-xxl rounded-circle border border-4 border-white-color-40" alt="" />
-                <Link href="#" className="position-absolute top-0 right-0 me-2" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified">
-                  <Image src="/images/svg/checked-mark.svg" alt="" height="30" width="30" />
-                </Link>
+                <Image src={`${user?.user?.picture}`} className="avatar-xxl rounded-circle border border-4 border-white-color-40" alt="" />
               </div>
               {/* text */}
               <div className="lh-1">
                 <h2 className="mb-0">
-                  One dustry
+                  {user?.user?.username}
                 </h2>
-                <p className="mb-0 d-block">Admin casablanca</p>
+                <p className="mb-0 d-block">Admin {user?.city?.name}</p>
               </div>
             </div>
             <div>
-            <EditProfile/>
+              <EditProfile user={user}/>
             </div>
           </div>
           {/* nav */}
@@ -46,7 +43,6 @@ const ProfileHeader = () => {
             <li className="nav-item">
               <Link className="nav-link" href="#">Teams</Link>
             </li>
-
           </ul>
         </div>
       </Col>

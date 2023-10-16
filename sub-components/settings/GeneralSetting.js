@@ -8,7 +8,7 @@ import { FormSelect, DropFiles } from 'widgets';
 import useMounted from 'hooks/useMounted';
 import {useState} from "react";
 
-const GeneralSetting = ({lang}) => {
+const GeneralSetting = ({lang,user}) => {
   const hasMounted = useMounted();
   const countryOptions = [
     { value: 'India', label: 'India' },
@@ -16,7 +16,7 @@ const GeneralSetting = ({lang}) => {
     { value: 'UK', label: 'UK' },
     { value: 'UAE', label: 'UAE' }
   ];
-  const [avatar,setAvatar]=useState()
+  const [avatar,setAvatar]=useState(user&&user?.user?.picture)
   const handleChangeAvatar=(data)=>{
 
     const imageFile = data.target.files[0];
@@ -79,7 +79,7 @@ const GeneralSetting = ({lang}) => {
                     {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblUsername}
                   </Form.Label>
                   <Col sm={8} className="mb-3 mb-lg-0">
-                    <Form.Control type="text" placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.UsernamePlaceHolder} id="username" required />
+                    <Form.Control type="text" defaultValue={user?.user?.username} placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.UsernamePlaceHolder} id="username" required />
                   </Col>
                 </Row>
                 {/* row */}
@@ -88,7 +88,7 @@ const GeneralSetting = ({lang}) => {
                   {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblEmail}
                 </Form.Label>
                   <Col md={8} xs={12}>
-                    <Form.Control type="email" placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.EmailPlaceHolder} id="email" required />
+                    <Form.Control type="email" defaultValue={user?.user?.email} placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.EmailPlaceHolder} id="email" required />
                   </Col>
                 </Row>
                 {/* row */}
@@ -97,33 +97,23 @@ const GeneralSetting = ({lang}) => {
                     {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblPhone}
                     <span className="text-muted">({lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.Optional})</span></Form.Label>
                   <Col md={8} xs={12}>
-                    <Form.Control type="text" placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.PhonePlaceHolder} id="phone" />
+                    <Form.Control type="text" defaultValue={user?.user?.phone} placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.PhonePlaceHolder} id="phone" />
                   </Col>
                 </Row>
 
                 {/* Location */}
                 <Row className="mb-3">
-                  <Form.Label className="col-sm-4" htmlFor="country">
+                  <Form.Label className="col-sm-4" htmlFor="city">
                     {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.LblLocation}
                   </Form.Label>
                   <Col md={8} xs={12}>
-                    <Form.Control as={FormSelect} placeholder="Select Country" id="country" options={countryOptions} />
+                    <Form.Control type="text" defaultValue={user?.city?.name} placeholder={lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.PhonePlaceHolder} id="city" />
                   </Col>
                 </Row>
 
-                {/* Address Line One
-                <Row className="mb-3">
-                  <Form.Label className="col-sm-4" htmlFor="addressLine">Address line 1</Form.Label>
-                  <Col md={8} xs={12}>
-                    <Form.Control type="text" placeholder="Enter Address line 1" id="addressLine" required />
-                  </Col>
-                </Row>*/}
-
-
-
                 {/* Zip code */}
                 <Row className="align-items-center">
-                  <Form.Label className="col-sm-4" htmlFor="zipcode">
+                  <Form.Label className="col-sm-4" defaultValue={user?.user?.code} htmlFor="zipcode">
                     {lang?.SettingsPage?.ComponentSettingGeneral?.Component.personalInformation?.Form?.Code}
                   </Form.Label>
 

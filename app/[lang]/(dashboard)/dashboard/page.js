@@ -10,12 +10,14 @@ import {ContentHeader} from "@/sub-components/dashboard/ContentHeader";
 
 import Link from "next/link";
 import DashboardTap from "@/sub-components/dashboard/Taps/DashboardTap";
+import {useSession} from "next-auth/react";
 
 
 
 const Home = () => {
     const dictionary = useDictionary();
-    const [NextTap,setNextTap]=useState(1)
+    const [NextTap,setNextTap]=useState(1);
+    const {data:session}=useSession();
 
     return (
         <Fragment>
@@ -25,7 +27,7 @@ const Home = () => {
                     <Col lg={12} md={12} xs={12}>
                         {/* Page header */}
                         <div>
-                            <ContentHeader/>
+                            <ContentHeader AdminCity={session?.user?.admin?.city}/>
                         </div>
                     </Col>
                     <Col lg={12} md={12} xs={12} as={"div"} className={"bg-white rounded-bottom smooth-shadow-sm"} style={
@@ -72,4 +74,5 @@ const Home = () => {
         </Fragment>
     )
 }
+
 export default dynamic(() => Promise.resolve(Home), { ssr: false });

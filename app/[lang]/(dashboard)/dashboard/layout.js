@@ -1,6 +1,6 @@
 'use client'
 // import node module libraries
-import { useState } from 'react';
+import {useState} from 'react';
 
 
 // import sub components
@@ -8,17 +8,21 @@ import NavbarVertical from '@/layouts/navbars/NavbarVertical';
 import NavbarTop from '@/layouts/navbars/NavbarTop';
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
 import useMounted from "@/hooks/useMounted";
+import {useSession} from "next-auth/react";
+import {redirect, useRouter} from "next/navigation";
 
-export default function DashboardLayout({ children }) {
+function DashboardLayout({children}) {
     const dictionary = useDictionary();
     const hasMounted =useMounted();
-
     const [showMenu, setShowMenu] = useState(true);
+    const router=useRouter()
+    const {data:session}=useSession()
+
     const ToggleMenu = () => {
         return setShowMenu(!showMenu);
     };
 
-    if (!hasMounted){
+    if (!hasMounted && !session){
         return (
             <div className={"screen"}>
                 <img src={"/images/brand/logo/xl-logo.png"}/>
@@ -42,6 +46,7 @@ export default function DashboardLayout({ children }) {
                             SidebarToggleMenu: ToggleMenu,
                             lang:dictionary.lang
                         }}
+                       user={session}
                     />
                 </div>
                     {!hasMounted?<div className={"screen"}><img src={"/images/brand/logo/xl-logo.png"}/></div>:children}
@@ -49,3 +54,4 @@ export default function DashboardLayout({ children }) {
         </div>
     )
 }
+export default DashboardLayout;

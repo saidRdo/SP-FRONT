@@ -1,9 +1,7 @@
 "use client"
 // import node module libraries
-import {Col, Row, Card, Button} from 'react-bootstrap';
+import {Col, Row, Card, Button, Spinner} from 'react-bootstrap';
 
-// import required data files
-import ZoneData from "@/data/Zones/ZoneData";
 
 import React, {Fragment, useState} from 'react';
 import DataTable from 'react-data-table-component';
@@ -11,17 +9,36 @@ import Assignment from "@/sub-components/assignment/Assignment";
 import { Dialog } from 'primereact/dialog';
 import {BiEdit, BiLinkExternal} from "react-icons/bi";
 import CreateZone from "@/sub-components/dashboard/zone/CreateZone";
+import {useSession} from "next-auth/react";
+import fetchZones from "@/data/Zones/ZoneDataList";
 
 
 const Zone = () => {
     const [scrollShow, setScrollShow] = useState(false);
     const [AssigmnetModal, setAssigmnetModal] = useState(false);
-
+    const {data:session}=useSession()
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [ZoneData, setZoneData] = useState([]);
 
-
+    if (session?.user?.admin){
+        fetchZones(session?.user?.admin?.city?.id)
+            .then(zones=>{
+                if (zones){
+                    setLoading(false)
+                    return setZoneData(zones.map(zn=>{
+                        return {
+                            id: zn.id,
+                            zone:zn.name,
+                            agent: zn.agent.user.username
+                        }
+                    }))
+                }
+            })
+            .catch(error=>console.error("axios catch",error));
+    }
 
     const columns = [
         {
@@ -30,18 +47,8 @@ const Zone = () => {
             sortable: true
         },
         {
-            name: 'City',
-            selector: (row) => row.city,
-            sortable: true
-        },
-        {
             name: 'Agent',
             selector: (row) => row.agent ,
-            sortable: true
-        },
-        {
-            name: 'Created at',
-            selector: (row) => row.created_at,
             sortable: true
         },
         {
@@ -126,16 +133,25 @@ const Zone = () => {
                                     onChange={handleSearch}
                                 />
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                paginationPerPage={5}
-                                paginationResetDefaultPage={resetPaginationToggle}
-                                paginationRowsPerPageOptions={[5, 10, 15, 20]}
-                                highlightOnHover
-                                customStyles={customStyles}
-                            />
+                            {
+                                loading ?
+                                    <div className="d-flex justify-content-center">
+                                        <Spinner animation="border" role="status">
+                                            <span className="visually-hidden">Loading...</span>
+                                        </Spinner>
+                                    </div>
+                                    :
+                                    <DataTable
+                                        columns={columns}
+                                        data={filteredData}
+                                        pagination
+                                        paginationPerPage={5}
+                                        paginationResetDefaultPage={resetPaginationToggle}
+                                        paginationRowsPerPageOptions={[5, 10, 15, 20]}
+                                        highlightOnHover
+                                        customStyles={customStyles}
+                                    />
+                            }
                         </div>
                     </Card.Body>
                 </Card>

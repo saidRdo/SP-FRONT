@@ -5,16 +5,16 @@ import {AiOutlineEdit} from "react-icons/ai";
 import TextField from "@mui/material/TextField";
 import {Button} from "react-bootstrap";
 
-export default function FormulaireEdit() {
+export default function FormulaireEdit({user}) {
 
     const [data,setData]=useState({
-        username:"said",
-        phone:"0650012039",
-        email:"saidbelkaz@gmail.com",
-        adresse:"technopark Casablanca",
-        role:"Super Admin"
+        username:user?.user?.username,
+        phone:user?.user?.phone,
+        email:user?.user?.email,
+        adresse:user?.city?.name,
+        role:"Admin "+user?.city?.name,
     });
-    const [avatar,setAvatar]=useState()
+    const [avatar,setAvatar]=useState(user && user?.user?.picture)
     const handlepic=(data)=> {
         const imageFile = data.target.files[0];
         const reader = new FileReader();
@@ -74,7 +74,7 @@ export default function FormulaireEdit() {
                             <TextField id="outlined-basic"  value={data?.role} label="Role" variant="outlined" readonly={true} disabled={true} />
                         </div>
                         <div className={"SaveButtom mt-2"}>
-                            <Button variant="primary" onClick={() => console.log(data) }>
+                            <Button variant="primary" className={"text-white"} onClick={() => console.log(data) }>
                                 Save Changes
                             </Button>
                         </div>

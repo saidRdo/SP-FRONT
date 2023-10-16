@@ -2,7 +2,6 @@ import { NextResponse } from "next/server"
 import { i18n } from "./i18n.config"
 import { match as matchLocale } from "@formatjs/intl-localematcher"
 import Negotiator from "negotiator"
-import { withAuth } from "next-auth/middleware";
 
 function getLocale(request) {
     const negotiatorHeaders = Object.fromEntries(request.headers.entries());
@@ -63,22 +62,9 @@ export function middleware(request) {
         )
     }
 }
-/*
-
-export default withAuth(
-    // `withAuth` augments your `Request` with the user's token.
-    function middleware(req) {
-        console.log(req.nextauth.token)
-    },
-    {
-        callbacks: {
-            authorized: ({ token }) => token?.role === "admin",
-        },
-    }
-)*/
 
 
 export const config = {
     // Matcher ignoring `/_next/` and `/api/`
-    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)","/en/dashboard"]
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"]
 }

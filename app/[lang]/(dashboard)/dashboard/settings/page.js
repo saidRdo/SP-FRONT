@@ -8,9 +8,11 @@ import { PageHeading } from 'widgets'
 // import sub components
 import { Notifications, GeneralSetting, EmailSetting, Preferences } from 'sub-components'
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
+import {useSession} from "next-auth/react";
 
 const Settings = () => {
     const dictionary = useDictionary();
+    const {data:session}=useSession()
 
     return (
         <Container fluid className="p-6">
@@ -19,13 +21,13 @@ const Settings = () => {
             <PageHeading heading="General" />
 
             {/* General Settings */}
-            <GeneralSetting lang={dictionary} />
+            <GeneralSetting lang={dictionary} user={session?.user?.admin}/>
 
             {/* Email Settings */}
-             <EmailSetting lang={dictionary} />
+             <EmailSetting lang={dictionary} userEmail={session?.user?.admin?.user?.email}/>
 
             {/* Settings for Preferences */}
-            <Preferences lang={dictionary} />
+            <Preferences lang={dictionary}/>
 
             {/* Settings for Notifications */}
             {/* <Notifications /> */}

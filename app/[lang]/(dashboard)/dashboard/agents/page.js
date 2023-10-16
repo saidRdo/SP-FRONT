@@ -1,27 +1,36 @@
 "use client"
 // import node module libraries
-import {Col, Row, Card, Button} from 'react-bootstrap';
-
-// import required data files
-import AgentsData from "@/data/Agent/AgentsData";
+import {Col, Row, Card, Button, Spinner} from 'react-bootstrap';
 
 
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import DataTable from 'react-data-table-component';
 import CreateAgent from "@/sub-components/dashboard/CreateAgent";
 import {Avatar} from "@mui/material";
 import Assignment from "@/sub-components/assignment/Assignment";
 import { Dialog } from 'primereact/dialog';
 import {BiEdit, BiLinkExternal} from "react-icons/bi";
+import {useSession} from "next-auth/react";
+import fetchAgent from "@/data/Agent/fetchAgents";
 
 const Agents = () => {
+    const {data:session}=useSession()
     const [scrollShow, setScrollShow] = useState(false);
     const [AssigmnetModal, setAssigmnetModal] = useState(false);
-
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [AgentsData,SetAgentsData]=useState([])
+    const [loading,setloading]=useState(true);
 
+    useEffect(() => {
+        fetchAgent().then(data=>{
+            if (data){
+                setloading(false)
+                return SetAgentsData(data);
+            }
+        })
+    }, []);
 
     function stringAvatar(name) {
         if(name.includes(' ')){
@@ -63,7 +72,7 @@ const Agents = () => {
             }
         },
         {
-            name: 'Name',
+            name: 'User Name',
             selector: (row) => row.username,
             sortable: true
         },
@@ -81,8 +90,8 @@ const Agents = () => {
             name: 'Action',
             cell: (row) => {
                 const handleEditClick = () => {
-                    setSelectedUser(row); // Set the selected user for editing
-                    setAssigmnetModal(true); // Open the modal
+                    setSelectedUser(row);
+                    setAssigmnetModal(true);
                 };
 
                 return (
@@ -140,10 +149,9 @@ const Agents = () => {
                             header="Assignment to a zone"
                             visible={AssigmnetModal}
                             maximizable
-                            style={{width:"100%"}}
                             onHide={() => setAssigmnetModal(false)}
                         >
-                            {selectedUser && <Assignment agent={selectedUser.username} zones={selectedUser.zone} from={"agent"}/>}
+                            {selectedUser && <Assignment agent={selectedUser.username} zones={selectedUser.zonesId} from={"agent"} cityID={session?.user?.admin?.city?.id}/>}
                         </Dialog>
                     </div>
                     <Card.Body>
@@ -159,16 +167,25 @@ const Agents = () => {
                                     onChange={handleSearch}
                                 />
                             </div>
-                            <DataTable
-                                columns={columns}
-                                data={filteredData}
-                                pagination
-                                paginationPerPage={5}
-                                paginationResetDefaultPage={resetPaginationToggle}
-                                paginationRowsPerPageOptions={[5, 10, 15, 20]}
-                                highlightOnHover
-                                customStyles={customStyles}
-                            />
+                            {
+                                loading ?
+                                    <div className="d-flex justify-content-center">
+                                        <Spinner animation="border" role="status">
+                                            <span className="visually-hidden">Loading...</span>
+                                        </Spinner>
+                                    </div> :
+                                <DataTable
+                                    columns={columns}
+                                    data={filteredData}
+                                    pagination
+                                    paginationPerPage={5}
+                                    paginationResetDefaultPage={resetPaginationToggle}
+                                    paginationRowsPerPageOptions={[5, 10, 15, 20]}
+                                    highlightOnHover
+                                    customStyles={customStyles}
+                                />
+                            }
+
                         </div>
                     </Card.Body>
                 </Card>
