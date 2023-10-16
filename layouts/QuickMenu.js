@@ -30,7 +30,7 @@ const QuickMenu = (props) => {
     })
 
     const handleSignOut = ()=> {
-        axios.post("http://localhost:8001/api/v1/auth/logout",{
+        axios.post("http://54.176.19.230:8001/api/v1/auth/logout",{
             refreshToken : props?.refreshToken
         }).then(res=>{
 
