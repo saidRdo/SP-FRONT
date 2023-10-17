@@ -18,9 +18,7 @@
         "BadCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة ."
     },
     "AppName": "SMART PARKING",
-    "indexPage":{
-        "Title":  "لوحة القيادة"
-    },
+
     "ProfileMenu": {
         "Profile": "الملف الشخصي",
         "Settings": "الإعدادات",
@@ -34,22 +32,9 @@
         "UserLang": "اللغة :"
     },
     "AdminRoutes": {
-        "Home": "الصفحة الرئيسية",
-        "Agents": {
-            "title": "الوكلاء",
-            "addAgents": "إضافة وكلاء",
-            "listAgents": "قائمة الوكلاء"
-        },
-        "Zone": {
-            "title": "المنطقة",
-            "addZone": "إضافة منطقة",
-            "listZones": "قائمة المناطق"
-        },
-        "Parking": {
-            "title": "مواقف السيارات",
-            "addParking": "إضافة موقف",
-            "listParking": "قائمة مواقف السيارات"
-        },
+        "Home": "الرئيسية",
+        "Agents": "الوكلاء",
+        "Zone": "المنطقة",
         "settings": "الإعدادات"
     },
     "SettingsPage": {
@@ -128,6 +113,50 @@
                 }
             }
         }
+    },
+    "contentHeader": {
+        "city": "المدينة",
+        "zone": "المنطقة",
+        "tabs": {
+            "dashboard": "لوحة القيادة"
+        }
+    },
+    "tables": {
+        "statistics": {
+            "title": "الإحصائيات قبل 24 ساعة",
+            "search": {
+                "label": "بحث",
+                "placeHolder": "البحث بواسطة اسم المنطقة"
+            },
+            "columns": {
+                "zone": "المنطقة",
+                "parking": "موقف السيارات",
+                "numberOfVehicules": "عدد المركبات",
+                "date": "التاريخ",
+                "guardian": "الحارس",
+                "percentage": "النسبة المئوية",
+                "amount": "المبلغ"
+            }
+        },
+        "claims": {
+            "title": "المطالبات",
+            "search": {
+                "label": "بحث",
+                "placeHolder": "البحث بواسطة اسم المنطقة أو الموقف"
+            },
+            "columns": {
+                "zone": "المنطقة",
+                "parking": "موقف السيارات",
+                "guardian": "الحارس",
+                "client": "العميل",
+                "date": "التاريخ",
+                "claim": "المطالبة",
+                "Attachment": "المرفقات",
+                "status": "الحالة",
+                "action": "العملية"
+            }
+        }
     }
+
 
 }

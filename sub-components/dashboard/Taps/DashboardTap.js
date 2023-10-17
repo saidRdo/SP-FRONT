@@ -7,7 +7,7 @@ import LineChart from "@/sub-components/dashboard/charts/LineChart";
 import BarChart from "@/sub-components/dashboard/charts/BarChart";
 import PieChart from "@/sub-components/dashboard/charts/PieChart";
 
-const DashboardTap  = () => {
+const DashboardTap  = (props) => {
 
     return (
     <React.Fragment>
@@ -65,11 +65,11 @@ const DashboardTap  = () => {
         </Row>
 
         {/* Table des Statistiques  */}
-        <Statistics />
+        <Statistics dictionary={props?.dictionary?.tables?.statistics}  />
 
         {/* Table des réclamations  */}
         <div className={"mb-4"}>
-            <Claims />
+            <Claims dictionary={props?.dictionary?.tables?.claims} />
         </div>
     </React.Fragment>
     )

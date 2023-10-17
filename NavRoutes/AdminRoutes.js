@@ -20,20 +20,19 @@ const AdminMenu = () => {
         },
         {
             id: uuid(),
-            title: dictionary.AdminRoutes.Agents.title+" & "+
-                dictionary.AdminRoutes.Zone.title +" & "+
-                dictionary.AdminRoutes.Parking.title,
+            title: dictionary.AdminRoutes.Agents+" & "+
+                dictionary.AdminRoutes.Zone,
             grouptitle: true
         },
         {
             id: uuid(),
-            title: dictionary.AdminRoutes.Agents.title,
+            title: dictionary.AdminRoutes.Agents,
             icon: <AiOutlineUsergroupAdd style={{margin:"5px"}}/>,
             link: `/${pathName.split('/')[1]}/dashboard/agents`
         },
         {
             id: uuid(),
-            title: dictionary.AdminRoutes.Zone.title,
+            title: dictionary.AdminRoutes.Zone,
             icon: <FaGripHorizontal style={{margin:"5px"}}/>,
             link: `/${pathName.split('/')[1]}/dashboard/zone`
         },

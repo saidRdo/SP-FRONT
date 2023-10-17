@@ -11,6 +11,7 @@ import {
   ProfileHeader
 } from '@/sub-components'
 import {useSession} from "next-auth/react";
+import dynamic from "next/dynamic";
 
 const Profile = () => {
   const {data:session}=useSession();
@@ -52,4 +53,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default dynamic(() => Promise.resolve(Profile), { ssr: false });

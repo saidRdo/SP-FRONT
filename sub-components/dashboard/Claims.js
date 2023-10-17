@@ -8,48 +8,48 @@ import React, {useState} from 'react';
 import ClaimsData from "@/data/dashboard/ClaimsData";
 import {CgImport} from "react-icons/cg";
 
-const Claims = () => {
+const Claims = (props) => {
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
     const columns = [
         {
-            name: 'Zone',
+            name: `${props?.dictionary?.columns?.zone }`,
             selector: (row) => row.zone,
             sortable: true
         },
         {
-            name: 'Parking',
+            name: `${props?.dictionary?.columns?.parking }`,
             selector: (row) => row.parking,
             sortable: true
         },
         {
-            name: 'Guardian',
+            name: `${props?.dictionary?.columns?.guardian }`,
             selector: (row) => row.guardian,
             sortable: true
         },
         {
-            name: 'Client',
+            name: `${props?.dictionary?.columns?.client }`,
             selector: (row) => row.client,
             sortable: true
         },
         {
-            name: 'Date',
+            name: `${props?.dictionary?.columns?.date }`,
             selector: (row) => row.date,
             sortable: true
         },
         {
-            name:"Claim",
+            name:`${props?.dictionary?.columns?.claim }`,
             selector:row => row.Claim
         },
         {
-            name:"Attachment",
+            name:`${props?.dictionary?.columns?.Attachment }`,
             cell:(row)=>{
                 return <img src={`${row.Attachment[0]}`} alt="attachment" width="80" height="50"/>;
             }
         },
         {
-            name:"Status",
+            name:`${props?.dictionary?.columns?.status }`,
             cell:(row)=>{
                 if (row.status==="En cours") {
                     return <Badge pill bg="warning" className="me-1">{row.status}</Badge>;
@@ -59,7 +59,7 @@ const Claims = () => {
             }
         },
         {
-            name:"Action",
+            name:`${props?.dictionary?.columns?.action }`,
             selector:row => row,
             cell:(row)=>{
                 return <Button className={"text-white"} variant={"success"}><CgImport/></Button>;
@@ -102,17 +102,17 @@ const Claims = () => {
             <Col md={12} xs={12}>
                 <Card>
                     <Card.Header className="bg-white  py-4">
-                        <h4 className="mb-0">Claims</h4>
+                        <h4 className="mb-0">{`${props?.dictionary?.title}`}</h4>
                     </Card.Header>
                     <Card.Body>
                         <div className={"datatableComponent"}>
                             <div className={"search"}>
                                 <label>
-                                    Search :
+                                    {`${props?.dictionary?.search?.label}`}
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Search by zone or parking or date"
+                                    placeholder={`${props?.dictionary?.search?.placeHolder}`}
                                     value={filterText}
                                     onChange={handleSearch}
                                 />

@@ -3,7 +3,7 @@
 import {Col, Row, Card, Button, Spinner} from 'react-bootstrap';
 
 
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import DataTable from 'react-data-table-component';
 import Assignment from "@/sub-components/assignment/Assignment";
 import { Dialog } from 'primereact/dialog';
@@ -11,6 +11,7 @@ import {BiEdit, BiLinkExternal} from "react-icons/bi";
 import CreateZone from "@/sub-components/dashboard/zone/CreateZone";
 import {useSession} from "next-auth/react";
 import fetchZones from "@/data/Zones/ZoneDataList";
+import dynamic from "next/dynamic";
 
 
 const Zone = () => {
@@ -23,22 +24,24 @@ const Zone = () => {
     const [loading, setLoading] = useState(true);
     const [ZoneData, setZoneData] = useState([]);
 
-    if (session?.user?.admin){
-        fetchZones(session?.user?.admin?.city?.id)
-            .then(zones=>{
-                if (zones){
-                    setLoading(false)
-                    return setZoneData(zones.map(zn=>{
-                        return {
-                            id: zn.id,
-                            zone:zn.name,
-                            agent: zn.agent.user.username
-                        }
-                    }))
-                }
-            })
-            .catch(error=>console.error("axios catch",error));
-    }
+    useEffect(() => {
+        if (session?.user?.admin?.city?.id) {
+            fetchZones(session?.user?.admin?.city?.id)
+                .then(zones => {
+                    if (zones) {
+                        setLoading(false)
+                        return setZoneData(zones.map(zn => {
+                            return {
+                                id: zn.id,
+                                zone: zn.name,
+                                agent: zn.agent.user.username
+                            }
+                        }))
+                    }
+                })
+                .catch(error => console.error("axios catch", error));
+        }
+    }, [session?.user?.admin?.city?.id]);
 
     const columns = [
         {
@@ -162,4 +165,4 @@ const Zone = () => {
 
 }
 
-export default Zone;
+export default dynamic(() => Promise.resolve(Zone), { ssr: false });

@@ -13,7 +13,6 @@ import DashboardTap from "@/sub-components/dashboard/Taps/DashboardTap";
 import {useSession} from "next-auth/react";
 
 
-
 const Home = () => {
     const dictionary = useDictionary();
     const [NextTap,setNextTap]=useState(1);
@@ -27,7 +26,7 @@ const Home = () => {
                     <Col lg={12} md={12} xs={12}>
                         {/* Page header */}
                         <div>
-                            <ContentHeader AdminCity={session?.user?.admin?.city}/>
+                            <ContentHeader dictionary={dictionary} AdminCity={session?.user?.admin?.city}/>
                         </div>
                     </Col>
                     <Col lg={12} md={12} xs={12} as={"div"} className={"bg-white rounded-bottom smooth-shadow-sm"} style={
@@ -40,7 +39,7 @@ const Home = () => {
                                 <Link className={`nav-link ${NextTap===1?"active":""}`} href="#" onClick={(event)=> {
                                     event.preventDefault();
                                     setNextTap(1)
-                                }}>Dashboard</Link>
+                                }}>{dictionary?.contentHeader?.tabs?.dashboard}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link ${NextTap===2?"active":""}`} href="#" onClick={(event)=> {
@@ -60,7 +59,7 @@ const Home = () => {
                 {(() => {
                     switch(NextTap){
                         case 1:
-                            return <DashboardTap/>;
+                            return <DashboardTap dictionary={dictionary} />;
                         case 2:
                             return <h1>Tab 2</h1>;
                         case 3:

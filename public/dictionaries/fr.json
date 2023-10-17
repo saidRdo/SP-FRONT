@@ -18,9 +18,6 @@
         "BadCredentials": "L'email ou le mot de passe est incorrect."
     },
     "AppName": "SMART PARKING",
-    "indexPage":{
-        "Title":  "Tableau de bord"
-    },
     "ProfileMenu": {
         "Profile": "Profil",
         "Settings": "Paramètres",
@@ -34,25 +31,11 @@
         "UserLang": "Langue :"
     },
     "AdminRoutes": {
-        "Home": "Home",
-        "Agents": {
-            "title": "Agents",
-            "addAgents": "Add Agent",
-            "listAgents": "List Agents"
-        },
-        "Zone": {
-            "title": "Zone",
-            "addZone": "Add Zone",
-            "listZones": "List Zones"
-        },
-        "Parking": {
-            "title": "Parking",
-            "addParking": "Add Parking",
-            "listParking": "List Parking"
-        },
-        "settings": "Settings"
+        "Home": "Accueil",
+        "Agents":"Agents",
+        "Zone": "Zone",
+        "settings": "Paramètres"
     },
-
     "SettingsPage": {
         "TitlePage": "Paramètres",
         "SaveChanges": "Enregistrer les modifications",
@@ -130,5 +113,50 @@
             }
         }
 
+    },
+    "contentHeader": {
+        "city": "Ville",
+        "zone": "Zone",
+        "tabs": {
+            "dashboard": "Tableau de bord"
+        }
+    },
+    "tables": {
+        "statistics": {
+            "title": "Statistiques il y a 24 heures",
+            "search": {
+                "label": "Rechercher",
+                "placeHolder": "rechercher par nom de zone"
+            },
+            "columns": {
+                "zone": "Zone",
+                "parking": "Parking",
+                "numberOfVehicules": "Nombre de véhicules",
+                "date": "Date",
+                "guardian": "Gardien",
+                "percentage": "Pourcentage",
+                "amount": "Montant"
+            }
+        },
+        "claims": {
+            "title": "Réclamations",
+            "search": {
+                "label": "Rechercher",
+                "placeHolder": "rechercher par nom de zone ou parking"
+            },
+            "columns": {
+                "zone": "Zone",
+                "parking": "Parking",
+                "guardian": "Gardien",
+                "client": "Client",
+                "date": "Date",
+                "claim": "Réclamation",
+                "Attachment": "Pièce jointe",
+                "status": "Statut",
+                "action": "Action"
+            }
+        }
     }
+
+
 }

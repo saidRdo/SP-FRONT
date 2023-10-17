@@ -12,6 +12,7 @@ import { Dialog } from 'primereact/dialog';
 import {BiEdit, BiLinkExternal} from "react-icons/bi";
 import {useSession} from "next-auth/react";
 import fetchAgent from "@/data/Agent/fetchAgents";
+import dynamic from "next/dynamic";
 
 const Agents = () => {
     const {data:session}=useSession()
@@ -196,4 +197,4 @@ const Agents = () => {
 
 }
 
-export default Agents;
+export default dynamic(() => Promise.resolve(Agents), { ssr: false });

@@ -4,8 +4,9 @@ import { Col, Row, Form, Card, Button } from 'react-bootstrap';
 // import hooks
 import useMounted from 'hooks/useMounted';
 
-const EmailSetting = ({lang,userEmail}) => {
+const EmailSetting = ({lang,user}) => {
   const hasMounted = useMounted();
+
   return (
     <Row className="mb-8">
       <Col xl={3} lg={4} md={12} xs={12}>

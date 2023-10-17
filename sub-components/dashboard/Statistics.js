@@ -8,44 +8,43 @@ import StatisticsData from "@/data/dashboard/StatisticsData";
 import React, {useState} from 'react';
 import DataTable from "react-data-table-component";
 
-const Statistics = () => {
-
+const Statistics = (props) => {
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
     const columns = [
         {
-            name: 'Zone',
+            name: `${props?.dictionary?.columns?.zone }`,
             selector: (row) => row.zone,
             sortable: true
         },
         {
-            name: 'Parking',
+            name: `${props?.dictionary?.columns?.parking }`,
             selector: (row) => row.parking,
             sortable: true
         },
         {
-            name: 'Number of vehicules',
+            name: `${props?.dictionary?.columns?.numberOfVehicules }`,
             selector: (row) => row.nbrvehicule ,
             sortable: true
         },
         {
-            name: 'Date',
+            name: `${props?.dictionary?.columns?.date }`,
             selector: (row) => row.date,
             sortable: true
         },
         {
-            name: 'Guardian',
+            name: `${props?.dictionary?.columns?.guardian}`,
             selector: (row) => row.guardian,
             sortable: true
         },
         {
-            name: 'Percentage',
+            name: `${props?.dictionary?.columns?.percentage }`,
             selector: (row) => row.percentage,
             sortable: true
         },
         {
-            name: 'Amount',
+            name: `${props?.dictionary?.columns?.amount }`,
             selector: (row) => row.amount,
             sortable: true
         }
@@ -83,17 +82,17 @@ const Statistics = () => {
             <Col md={12} xs={12}>
                 <Card>
                     <Card.Header className="bg-white  py-4">
-                        <h4 className="mb-0">Statistics 24 hours ago</h4>
+                        <h4 className="mb-0">{`${props?.dictionary?.title}`}</h4>
                     </Card.Header>
                     <Card.Body>
                         <div className={"datatableComponent"}>
                             <div className={"search"}>
                                 <label>
-                                    Search :
+                                    {`${props?.dictionary?.search?.label} :`}
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Search by Name Or Zone"
+                                    placeholder={`${props?.dictionary?.search?.placeHolder}`}
                                     value={filterText}
                                     onChange={handleSearch}
                                 />

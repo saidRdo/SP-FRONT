@@ -9,20 +9,12 @@ import { PageHeading } from 'widgets'
 import { Notifications, GeneralSetting, EmailSetting, Preferences } from 'sub-components'
 import {useDictionary} from "@/components/DictionaryProvider/DictionaryProvider";
 import {useSession} from "next-auth/react";
+import dynamic from "next/dynamic";
 
 const Settings = () => {
     const dictionary = useDictionary();
     const {data:session}=useSession()
 
-    if (!session){
-        return (
-            <div className="d-flex justify-content-center">
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-            </div>
-        )
-    }
 
     return (
         <Container fluid className="p-6">
@@ -30,11 +22,8 @@ const Settings = () => {
             {/* Page Heading */}
             <PageHeading heading="General" />
 
-            {/* General Settings */}
-            <GeneralSetting lang={dictionary} user={session?.user?.admin}/>
-
             {/* Email Settings */}
-             <EmailSetting lang={dictionary} userEmail={session?.user?.admin?.user?.email}/>
+             <EmailSetting lang={dictionary} user={session?.user}/>
 
             {/* Settings for Preferences */}
             <Preferences lang={dictionary}/>
@@ -46,4 +35,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default dynamic(() => Promise.resolve(Settings), { ssr: false });

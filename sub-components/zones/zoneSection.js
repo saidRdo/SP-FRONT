@@ -12,36 +12,25 @@ const ZoneSection = (props) => {
     const defaultZoneSelected=1;
     const {data:session}=useSession();
     const [loading,setLoading]=useState(true)
-    const [fetchOnceb,setFetchOnce]=useState(true)
 
     useEffect(() => {
-        if (props?.cityID && !fetchOnceb){
-            const zones= JSON.parse(localStorage.getItem(`zones-${props?.cityID}`))
-            return setOptions(zones.map(zone=>{
-                return {value:zone.id, label:zone.name}
-            }))
-        }
-    }, []);
-
-    if (props?.cityID && fetchOnceb ){
-        fetchZones(props?.cityID, { fetchOnce: fetchOnceb })
-            .then(zones=>{
+        if (session?.user?.admin?.city?.id){
+            fetchZones(session?.user?.admin?.city?.id)
+                .then(zones=>{
                     if (zones){
                         setLoading(false)
-                        setFetchOnce(false)
                         return setOptions(zones.map(zone=>{
                             return {value:zone.id, label:zone.name}
                         }))
                     }
                 })
-            .catch(error=>console.error(error));
-
-    }
-
+                .catch(error=>console.error(error));
+        }
+    }, [session?.user?.admin?.city?.id]);
 
     return (
         <div className={"d-flex align-items-center mb-1 mb-lg-0"}>
-            <h4 className="mb-0 text-white">Zone : </h4>
+            <h4 className="mb-0 text-white">{`${props?.dictionary?.zone} : `}  </h4>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                 {
                         loading ?

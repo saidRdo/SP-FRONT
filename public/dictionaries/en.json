@@ -18,9 +18,6 @@
         "BadCredentials": "Email or password is invalid."
     },
     "AppName": "SMART PARKING",
-    "indexPage":{
-        "Title":  "Dashboard"
-    },
     "ProfileMenu": {
         "Profile": "Profile",
         "Settings": "Settings",
@@ -35,21 +32,8 @@
     },
     "AdminRoutes": {
         "Home": "Home",
-        "Agents": {
-            "title": "Agents",
-            "addAgents": "Add Agent",
-            "listAgents": "List Agents"
-        },
-        "Zone": {
-            "title": "Zone",
-            "addZone": "Add Zone",
-            "listZones": "List Zones"
-        },
-        "Parking": {
-            "title": "Parking",
-            "addParking": "Add Parking",
-            "listParking": "List Parking"
-        },
+        "Agents": "Agents",
+        "Zone":"Zone",
         "settings": "Settings"
     },
     "SettingsPage": {
@@ -128,7 +112,49 @@
                 }
             }
         }
+    },
+    "contentHeader": {
+        "city": "City",
+        "zone": "zone",
+        "tabs": {
+            "dashboard": "Dashboard"
+        }
+    },
+    "tables": {
+        "statistics": {
+            "title": "Statistics 24 Hours ago",
+            "search": {
+                "label": "Search",
+                "placeHolder": "search by zone name"
+            },
+            "columns": {
+                "zone": "Zone",
+                "parking": "Parking",
+                "numberOfVehicules": "Number of vehicules",
+                "date": "Date",
+                "guardian": "Guardian",
+                "percentage": "Percentage",
+                "amount": "Amount"
+            }
+        },
+        "claims": {
+            "title": "Claims",
+            "search": {
+                "label": "Search",
+                "placeHolder": "search by zone name or parking"
+            },
+            "columns": {
+                "zone": "Zone",
+                "parking": "Parking",
+                "guardian": "Guardian",
+                "client": "Client",
+                "date": "Date",
+                "claim": "Claim",
+                "Attachment": "Attachment",
+                "status": "Status",
+                "action": "Action"
+            }
+        }
     }
-
 
 }
