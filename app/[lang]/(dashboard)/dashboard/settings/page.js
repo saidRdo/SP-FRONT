@@ -1,6 +1,6 @@
 'use client'
 // import node module libraries
-import { Container } from 'react-bootstrap';
+import {Container, Spinner} from 'react-bootstrap';
 
 // import widget as custom components
 import { PageHeading } from 'widgets'
@@ -13,6 +13,16 @@ import {useSession} from "next-auth/react";
 const Settings = () => {
     const dictionary = useDictionary();
     const {data:session}=useSession()
+
+    if (!session){
+        return (
+            <div className="d-flex justify-content-center">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        )
+    }
 
     return (
         <Container fluid className="p-6">

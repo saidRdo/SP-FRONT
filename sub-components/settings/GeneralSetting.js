@@ -1,8 +1,5 @@
 // import node module libraries
-import { Col, Row, Form, Card, Button, Image } from 'react-bootstrap';
-
-// import widget as custom components
-import { FormSelect, DropFiles } from 'widgets';
+import {Col, Row, Form, Card, Button, Image, Spinner} from 'react-bootstrap';
 
 // import hooks
 import useMounted from 'hooks/useMounted';
@@ -10,24 +7,16 @@ import {useState} from "react";
 
 const GeneralSetting = ({lang,user}) => {
   const hasMounted = useMounted();
-  const countryOptions = [
-    { value: 'India', label: 'India' },
-    { value: 'US', label: 'US' },
-    { value: 'UK', label: 'UK' },
-    { value: 'UAE', label: 'UAE' }
-  ];
   const [avatar,setAvatar]=useState(user&&user?.user?.picture)
   const handleChangeAvatar=(data)=>{
-
     const imageFile = data.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(imageFile);
-    console.log("reader",reader)
+    //console.log("reader",reader)
     reader.onload = function(evt){
       //console.log("result",evt.target.result)
       setAvatar(evt.target.result)
     }
-
   }
 
   return (
