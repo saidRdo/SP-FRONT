@@ -1,13 +1,11 @@
-'use client'
-// import node module libraries
-import { Container } from 'react-bootstrap';
+import {getServerSession} from "next-auth/next";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
+import {redirect} from "next/navigation";
 
-export default function AuthLayout({ children }) {
-    return (
-        <div className={"bg-login-page"}>
-            <Container className="d-flex flex-column">
-                {children}
-            </Container>
-        </div>
-    )
+export default async function AuthLayout({ children }) {
+    const session = await getServerSession(authOptions);
+    if (session){
+        return redirect("/dashboard")
+    }
+    return (children)
 }

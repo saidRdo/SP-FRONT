@@ -40,11 +40,16 @@ export const authOptions = {
     pages:{
         singIn:"/sign-in"
     },
+    signOut:{
+        callbackUrl:"/sign-in"
+    },
     callbacks: {
         async jwt({ token, user }) {
             return { ...token, ...user };
         },
-
+        async signout({ callbackUrl }) {
+            return callbackUrl
+        },
         async session({ session, token }) {
             session.user = token;
             return session;
