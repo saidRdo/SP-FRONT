@@ -36,7 +36,7 @@ const QuickMenu = (props) => {
         }).then(res=>{
 
             if (res.status===200 ){
-                signOut({ callbackUrl: `${window.location.origin}/sign-in` })
+                signOut({ callbackUrl: `/sign-in` })
             }
         }).catch(error=>console.error(error))
     }
