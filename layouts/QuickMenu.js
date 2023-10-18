@@ -30,7 +30,7 @@ const QuickMenu = (props) => {
     })
 
     const handleSignOut = ()=> {
-        axios.post("http://localhost:8001/api/v1/auth/logout",{
+        axios.post("http://54.176.19.230:8000/api/v1/auth/logout",{
             refreshToken : props?.refreshToken
         }).then(res=>{
 
@@ -197,7 +197,7 @@ const QuickMenu = (props) => {
                     >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
                             <div className="lh-1 ">
-                                <h5 className="mb-1"> {props?.user?.admin?.username} </h5>
+                                <h5 className="mb-1"> {props?.user?.username} </h5>
                                 <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
                             </div>
                             <div className=" dropdown-divider mt-3 mb-2"></div>
