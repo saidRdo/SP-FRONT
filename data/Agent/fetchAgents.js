@@ -1,8 +1,8 @@
-import Axios from "@/hooks/Axios";
+import axios from "axios";
 
 const fetchAgent = async () => {
     try {
-        const agents = await Axios.get(`/zones`);
+        const agents = await axios.get(`http://localhost:8001/api/v1/zones`);
         if (agents.data) {
             const groupedData = agents.data.reduce((result, zone) => {
                 const agentId = zone.agent.id;

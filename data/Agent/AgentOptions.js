@@ -1,8 +1,8 @@
-import Axios from "@/hooks/Axios";
+import axios from "axios";
 
 const AgentOptions = async () => {
     try {
-        const agents = await Axios.get(`/agent`);
+        const agents = await axios.get(`http://localhost:8001/api/v1/agent`);
         if (agents.data) {
             const options = agents.data.map(agnt=>{
                 return {value:agnt.id , label:agnt.user.username}
