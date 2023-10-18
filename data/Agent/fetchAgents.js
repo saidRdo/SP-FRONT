@@ -2,7 +2,7 @@ import axios from "axios";
 
 const fetchAgent = async () => {
     try {
-        const agents = await axios.get(`http://localhost:8001/api/v1/zones`);
+        const agents = await axios.get(`http://54.176.19.230:8000/api/v1/zones`);
         if (agents.data) {
             const groupedData = agents.data.reduce((result, zone) => {
                 const agentId = zone.agent.id;
