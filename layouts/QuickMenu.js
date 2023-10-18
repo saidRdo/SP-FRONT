@@ -21,7 +21,6 @@ import {signOut} from "next-auth/react";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import Axios from "@/hooks/Axios";
-import {useRouter} from "next/navigation";
 
 const QuickMenu = (props) => {
 
@@ -30,15 +29,14 @@ const QuickMenu = (props) => {
     const isDesktop = useMediaQuery({
         query: '(min-width: 1224px)'
     })
-    const router=useRouter()
+
     const handleSignOut = ()=> {
         Axios.post("/auth/logout",{
             refreshToken : props?.refreshToken
         }).then(res=>{
 
             if (res.status===200 ){
-                signOut({redirect:false})
-                router.push("/sign-in")
+                signOut({ callbackUrl: `${window.location.origin}/sign-in` })
             }
         }).catch(error=>console.error(error))
     }
