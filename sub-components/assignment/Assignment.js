@@ -10,7 +10,7 @@ import fetchZones from "@/data/Zones/ZoneDataList";
 import AgentOptions from "@/data/Agent/AgentOptions";
 
 
-function Assignment({agent,zones,from,cityID}){
+function Assignment({agent,zones,from,cityID,SetAgentsData}){
     const [scrollShowZone, setScrollShowZone] = useState(false);
     const [selectedZone, setSelectedZone] = useState(zones?zones:0);
     const [selectedAgent, setSelectedAgent] = useState('');
@@ -19,7 +19,7 @@ function Assignment({agent,zones,from,cityID}){
     const [AgentOption,setAgentOptions]=useState([]);
 
 
-    if (cityID){
+    useEffect(() => {
         fetchZones(cityID)
             .then(zones=>{
                 if (zones){
@@ -30,11 +30,8 @@ function Assignment({agent,zones,from,cityID}){
                 }
             })
             .catch(error=>console.error("axios catch",error));
-    }
-
-    useEffect(() => {
         AgentOptions().then(resp=>setAgentOptions(resp)).catch(error=>console.error(error))
-    }, []);
+    }, [cityID]);
 
     switch (from){
         case "agent":

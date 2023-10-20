@@ -5,7 +5,7 @@ import axios from "axios";
 import {DotSpinner} from "@uiball/loaders";
 
 
-function Map() {
+function Map({setZoneData}) {
 
     const [clickedLocation, setClickedLocation] = useState(null);
     const [centerLocation, setCenterLocation] = useState(null);
@@ -24,9 +24,18 @@ function Map() {
         const lat = event.latLng.lat();
         const lng = event.latLng.lng();
 
-        setZoom(13)
         setClickedLocation({ lat, lng });
         //console.log('Click Coordinates:',{lat,lng});
+        setZoneData(prevData => {
+            return {
+                ...prevData,
+                zone: {
+                    ...prevData.zone,
+                    lat:lat,
+                    lng:lng
+                }
+            }
+        });
     };
 
 

@@ -78,6 +78,16 @@ const Agents = () => {
             sortable: true
         },
         {
+            name: 'Cin',
+            selector: (row) => row.cin,
+            sortable: true
+        },
+        {
+            name: 'Phone',
+            selector: (row) => row.phone,
+            sortable: true
+        },
+        {
             name: 'Zone',
             selector: (row) => row.zone + "\n" ,
             sortable: true
@@ -120,8 +130,8 @@ const Agents = () => {
             },
         },
     };
-    const filteredData = AgentsData.filter(item =>
-        item.username.toLowerCase().includes(filterText.toLowerCase()) || item.zone.some(zn=>zn.toLowerCase().includes(filterText.toLowerCase()))
+    const filteredData = AgentsData.sort((a, b) => b.id - a.id).filter(item =>
+        item.username.toLowerCase().includes(filterText.toLowerCase()) || item.cin.toLowerCase().includes(filterText.toLowerCase()) || Array.isArray(item.zone) && item.zone.some(zn=>zn.toLowerCase().includes(filterText.toLowerCase()))
     );
 
     const handleSearch = (e) => {
@@ -141,7 +151,7 @@ const Agents = () => {
                                     <BiLinkExternal className={"ml-2 mr-2"}/> Create new agent
                                 </Button>
                                 <Dialog header="Create new agent" style={{width:"100vh"}} visible={scrollShow} maximizable onHide={() => setScrollShow(false)}>
-                                    <CreateAgent/>
+                                    <CreateAgent city={session?.user?.admin?.city?.id} agentData={AgentsData} SetAgentsData={SetAgentsData}/>
                                 </Dialog>
                             </div>
                     </Card.Header>
@@ -152,7 +162,7 @@ const Agents = () => {
                             maximizable
                             onHide={() => setAssigmnetModal(false)}
                         >
-                            {selectedUser && <Assignment agent={selectedUser.username} zones={selectedUser.zonesId} from={"agent"} cityID={session?.user?.admin?.city?.id}/>}
+                            {selectedUser && <Assignment agent={selectedUser.username} zones={selectedUser.zonesId} from={"agent"} cityID={session?.user?.admin?.city?.id} />}
                         </Dialog>
                     </div>
                     <Card.Body>
@@ -163,7 +173,7 @@ const Agents = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Search by Name Or Zone"
+                                    placeholder="Search by Name or Cin or Zone"
                                     value={filterText}
                                     onChange={handleSearch}
                                 />

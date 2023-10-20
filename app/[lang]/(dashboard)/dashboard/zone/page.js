@@ -28,13 +28,16 @@ const Zone = () => {
         if (session?.user?.admin?.city?.id) {
             fetchZones(session?.user?.admin?.city?.id)
                 .then(zones => {
+                    //console.log(zones)
                     if (zones) {
                         setLoading(false)
                         return setZoneData(zones.map(zn => {
                             return {
                                 id: zn.id,
                                 zone: zn.name,
-                                agent: zn.agent.user.username
+                                lat: zn.lat,
+                                lng: zn.lng,
+                                agent: zn?.agent ? zn?.agent.user.username : "This zone does not have any agent"
                             }
                         }))
                     }
@@ -50,6 +53,14 @@ const Zone = () => {
             sortable: true
         },
         {
+            name: 'Latitude',
+            selector: (row) => row.lat ,
+            sortable: true
+        }, {
+            name: 'Longitude',
+            selector: (row) => row.lng ,
+            sortable: true
+        }, {
             name: 'Agent',
             selector: (row) => row.agent ,
             sortable: true
@@ -87,7 +98,7 @@ const Zone = () => {
             },
         },
     };
-    const filteredData = ZoneData.filter(item =>
+    const filteredData = ZoneData.sort((a, b) => b.id - a.id).filter(item =>
         item.zone.toLowerCase().includes(filterText.toLowerCase()) || item.agent.toLowerCase().includes(filterText.toLowerCase())
     );
 
@@ -108,7 +119,7 @@ const Zone = () => {
                                 <BiLinkExternal className={"ml-2 mr-2"}/> Create new zone
                             </Button>
                             <Dialog header="Create new zone"  style={{width:"100vh"}} visible={scrollShow} maximizable onHide={() => setScrollShow(false)}>
-                                <CreateZone/>
+                                <CreateZone city={session?.user?.admin?.city} setzoneData={setZoneData}/>
                             </Dialog>
                         </div>
                     </Card.Header>

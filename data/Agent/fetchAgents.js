@@ -2,35 +2,22 @@ import Axios from "@/hooks/Axios";
 
 const fetchAgent = async () => {
     try {
-        const agents = await Axios.get(`/zones`);
+        const agents = await Axios.get(`/agent`);
         if (agents.data) {
-            const groupedData = agents.data.reduce((result, zone) => {
-                const agentId = zone.agent.id;
-
-                if (!result[agentId]) {
-                    result[agentId] = [];
-                }
-
-                result[agentId].push(zone);
-
-                return result;
-            }, {});
-
-            const transformedData = Object.values(groupedData).map(zones => {
-                const agent = zones[0].agent.user; // Assuming all zones for an agent have the same user details
-
-                return {
-                    id: agent.id,
-                    username: agent.username,
-                    picture: agent.picture,
-                    email: agent.email,
-                    city: "Casablanca", // Assuming this is constant for all agents
-                    zone: zones.map(zone => zone.name),
-                    zonesId:zones.map(zone => zone.id),
-                    created_at: agent.createAt.split("T")[0].replace(/-/g, "/")
-                };
+            return agents.data.map(agent=>{
+                    return {
+                        id: agent.id,
+                        username: agent?.user.username,
+                        cin: agent?.user.code,
+                        phone: agent?.user.phone,
+                        picture:  agent?.user.picture,
+                        email:  agent?.user.email,
+                        city: "Casablanca", // Assuming this is constant for all agents
+                        zone:  agent.zone.length>0 ? agent?.zone?.map(zone => zone.name) : "He has no zone",
+                        zonesId: agent?.zone?.map(zone => zone.id),
+                        created_at: agent?.user.createAt.split("T")[0].replace(/-/g, "/")
+                    }
             });
-            return transformedData;
         }
 
     } catch (error) {
