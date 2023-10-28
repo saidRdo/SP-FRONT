@@ -20,15 +20,7 @@
     "AppName": "SMART PARKING",
     "ProfileMenu": {
         "Profile": "Profile",
-        "Settings": "Settings",
         "Logout": "Log out"
-    },
-    "ProfileSection": {
-        "Username": "Username :",
-        "email": "Email :",
-        "Adresse" : "Address :",
-        "Phone": "Phone :",
-        "UserLang": "Language :"
     },
     "AdminRoutes": {
         "Home": "Home",
@@ -66,16 +58,8 @@
             }
         },
         "ComponentEmailSetting": {
-            "Title": "Email Setting",
-            "SubTitle": "Add a new email to profile",
-            "ComponentEmail": {
-                "title": "Email",
-                "Form": {
-                    "LblNewEmail": "New Email",
-                    "NewEmailPlaceHolder": "Enter your email adress",
-                    "GestionErrors": {}
-                }
-            },
+            "Title": "Password Setting",
+            "SubTitle": "Change your password",
             "ComponentChangePassword": {
                 "title": "Change your password",
                 "Form": {
@@ -117,8 +101,42 @@
         "city": "City",
         "zone": "zone",
         "tabs": {
-            "dashboard": "Dashboard"
+            "dashboard": "Dashboard",
+            "claims": "Claims",
+            "statistics": "Statistics"
         }
+    },
+    "profileHeader": {
+        "admin": "Admin",
+        "tabs": {
+            "overview": "Profile",
+            "zones": "Zones",
+            "agents": "Agents",
+            "parking": "Parking",
+            "guardian": "Guardian",
+            "capteur": "Sensor"
+        },
+        "editProfile": {
+            "button": "Edit profile",
+            "popUp": {
+                "subTitle": "Personal Information",
+                "fullName": "Full name",
+                "email": "Email",
+                "phone": "Phone",
+                "city": "City",
+                "role": "Role",
+                "saveChanges": "Save Changes",
+                "profileUpdatedMsg": "Profile update successful"
+            }
+        }
+    },
+    "overviewTab": {
+        "title": "Personal Information",
+        "fullName": "Full Name",
+        "email": "Email",
+        "phone": "Phone",
+        "city": "City",
+        "role": "Role"
     },
     "tables": {
         "statistics": {
@@ -155,6 +173,18 @@
                 "action": "Action"
             }
         }
-    }
+    },
+    "GestionErrors": {
+        "obligatoire": "This field is required",
+        "lenghtM4": "This field must be at least 4 characters long",
+        "cinInValide": "Your invalid code should look like this: A12345",
+        "emailInValide": "Your invalid email should look like this: example@example.com",
+        "passwordM8": "Password must be at least 8 characters long",
+        "phoneInValide": "Your number is not valid. Enter a 10-digit number",
+        "passwordNotmatched": "Password and confirm password do not match",
+        "currentPasswordIncorrect": "Current password is incorrect",
+        "passwordChangedSuccess": "Your password has been successfully updated"
 
+
+    }
 }

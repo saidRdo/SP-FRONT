@@ -120,7 +120,7 @@ const QuickMenu = (props) => {
                     className="rounded-circle"
                     id="dropdownUser">
                     <div className="avatar avatar-md avatar-indicators avatar-online">
-                        <Image alt="avatar" src={`${props?.user?.picture}`} className="rounded-circle" />
+                        <Image alt="avatar" src={`${props?.user?.picture ? props?.user?.picture  :"/images/avatar/defaultIMG.png" }`} className="rounded-circle" />
                     </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
@@ -128,19 +128,19 @@ const QuickMenu = (props) => {
                     align="end"
                     aria-labelledby="dropdownUser"
                     show
-                    >
+                >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
-                            <div className="lh-1 ">
-                                <h5 className="mb-1"> {props?.user?.username}</h5>
-                                <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
-                            </div>
-                            <div className=" dropdown-divider mt-3 mb-2"></div>
+                        <div className="lh-1 ">
+                            <h5 className="mb-1"> {props?.user?.username}</h5>
+                            <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">{props?.user?.email}</Link>
+                        </div>
+                        <div className=" dropdown-divider mt-3 mb-2"></div>
                     </Dropdown.Item>
-                    <Dropdown.Item href={`/${props.langauge}/dashboard/settings`} >
-                        <i className="fe fe-settings me-2"></i> Account Settings
+                    <Dropdown.Item href={`/${props.langauge}/dashboard/profile`} >
+                        <i className="fe fe-user me-2"></i> {props.dictionary.ProfileMenu.Profile}
                     </Dropdown.Item>
                     <Dropdown.Item onClick={()=>handleSignOut()}>
-                        <i className="fe fe-power me-2"></i>Sign Out
+                        <i className="fe fe-power me-2"></i>{props.dictionary.ProfileMenu.Logout}
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
@@ -188,26 +188,26 @@ const QuickMenu = (props) => {
                     className="rounded-circle"
                     id="dropdownUser">
                     <div className="avatar avatar-md avatar-indicators avatar-online">
-                        <Image alt="avatar" src='/images/avatar/avatar-1.jpg' className="rounded-circle" />
+                        <Image alt="avatar" src={`${props?.user?.picture ? props?.user?.picture  :"/images/avatar/defaultIMG.png" }`} className="rounded-circle" />
                     </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
-                    className={`dropdown-menu dropdown-menu-${props.langauge==="ar"?'start':'end'} `}
+                    className={`dropdown-menu dropdown-menu-${props.langauge==="ar"?'start':'end'}` }
                     align="end"
                     aria-labelledby="dropdownUser"
-                    >
+                >
                     <Dropdown.Item as="div" className="px-4 pb-0 pt-2" bsPrefix=' '>
-                            <div className="lh-1 ">
-                                <h5 className="mb-1"> {props?.user?.username} </h5>
-                                <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">View my profile</Link>
-                            </div>
-                            <div className=" dropdown-divider mt-3 mb-2"></div>
+                        <div className="lh-1 ">
+                            <h5 className="mb-1"> {props?.user?.username}</h5>
+                            <Link href={`/${props.langauge}/dashboard/profile`} className="text-inherit fs-6">{props?.user?.email}</Link>
+                        </div>
+                        <div className=" dropdown-divider mt-3 mb-2"></div>
                     </Dropdown.Item>
-                    <Dropdown.Item href={`/${props.langauge}/dashboard/settings`}>
-                        <i className="fe fe-settings me-2"></i> Account Settings
+                    <Dropdown.Item href={`/${props.langauge}/dashboard/profile`} >
+                        <i className="fe fe-user me-2"></i> {props.dictionary.ProfileMenu.Profile}
                     </Dropdown.Item>
                     <Dropdown.Item onClick={()=>handleSignOut()}>
-                        <i className="fe fe-power me-2"></i>Sign Out
+                        <i className="fe fe-power me-2"></i>{props.dictionary.ProfileMenu.Logout}
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

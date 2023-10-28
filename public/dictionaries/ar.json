@@ -18,18 +18,9 @@
         "BadCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة ."
     },
     "AppName": "SMART PARKING",
-
     "ProfileMenu": {
         "Profile": "الملف الشخصي",
-        "Settings": "الإعدادات",
         "Logout": "تسجيل الخروج"
-    },
-    "ProfileSection": {
-        "Username": "اسم المستخدم :",
-        "email": "البريد الإلكتروني :",
-        "Adresse" : "العنوان :",
-        "Phone": "الهاتف :",
-        "UserLang": "اللغة :"
     },
     "AdminRoutes": {
         "Home": "الرئيسية",
@@ -67,16 +58,8 @@
             }
         },
         "ComponentEmailSetting": {
-            "Title": "إعدادات البريد الإلكتروني",
-            "SubTitle": "أضف بريدًا إلكترونيًا جديدًا إلى الملف الشخصي",
-            "ComponentEmail": {
-                "title": "البريد الإلكتروني",
-                "Form": {
-                    "LblNewEmail": "البريد الإلكتروني الجديد",
-                    "NewEmailPlaceHolder": "أدخل عنوان البريد الإلكتروني",
-                    "GestionErrors": {}
-                }
-            },
+            "Title": "ضبط كلمة المرور",
+            "SubTitle": "قم بتغيير كلمة مرور حسابك",
             "ComponentChangePassword": {
                 "title": "تغيير كلمة المرور",
                 "Form": {
@@ -118,8 +101,43 @@
         "city": "المدينة",
         "zone": "المنطقة",
         "tabs": {
-            "dashboard": "لوحة القيادة"
+            "dashboard": "لوحة القيادة",
+            "claims": "المطالبات",
+            "statistics": "الإحصائيات"
         }
+    },
+    "profileHeader": {
+        "admin": "مدير",
+        "tabs": {
+            "overview": "الملف الشخصي",
+            "zones": "المناطق",
+            "agents": "وكلاء",
+            "parking": "مواقف السيارات",
+            "guardian": "الوصي",
+            "capteur": "جهاز استشعار"
+        },
+        "editProfile": {
+            "button": "تعديل الملف",
+            "popUp": {
+                "subTitle": "معلومات شخصية",
+                "fullName": "الاسم الكامل",
+                "email": "البريد الإلكتروني",
+                "phone": "الهاتف",
+                "city": "المدينة",
+                "role": "الدور",
+                "saveChanges": "حفظ التغييرات",
+                "profileUpdatedMsg": "تم تحديث الملف الشخصي بنجاح"
+
+            }
+        }
+    },
+    "overviewTab": {
+        "title": "المعلومات الشخصية",
+        "fullName": "الاسم الكامل",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "city": "المدينة",
+        "role": "الدور"
     },
     "tables": {
         "statistics": {
@@ -156,6 +174,20 @@
                 "action": "العملية"
             }
         }
+    },
+    "GestionErrors": {
+        "obligatoire": "هذا الحقل مطلوب",
+        "lenghtM4": "يجب أن يحتوي هذا الحقل على ما لا يقل عن 4 أحرف",
+        "cinInValide": "يجب أن يكون الرمز الخاص بك غير صالح ويبدو مثل هذا: A12345",
+        "emailInValide": "يجب أن يكون بريدك الإلكتروني غير صالح ويبدو مثل هذا: example@example.com",
+        "passwordM8": "يجب أن يتكون كلمة المرور من ما لا يقل عن 8 أحرف",
+        "phoneInValide": "الرقم غير صالح. يرجى إدخال رقم مكون من 10 أرقام",
+        "passwordNotmatched": "كلمة المرور وتأكيد كلمة المرور غير متطابقتين",
+        "currentPasswordIncorrect": "كلمة المرور الحالية غير صحيحة",
+        "passwordChangedSuccess": "تم تحديث كلمة المرور بنجاح"
+
+
+
     }
 
 

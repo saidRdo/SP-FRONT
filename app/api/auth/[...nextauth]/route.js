@@ -44,7 +44,10 @@ export const authOptions = {
         callbackUrl:"/sign-in"
     },
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, user,trigger,session }) {
+            if(trigger==="update"){
+                return {...token,...session.user}
+            }
             return { ...token, ...user };
         },
         async signout({ callbackUrl }) {
@@ -52,6 +55,7 @@ export const authOptions = {
         },
         async session({ session, token }) {
             session.user = token;
+            session.maxAge = 7 * 24 * 60 * 60; // 7 days * 24 hours * 60 minutes * 60 seconds
             return session;
         },
     }

@@ -27,7 +27,7 @@ const NavbarTop = (props) => {
 				</div>
 				{/* Quick Menu */}
 				<Nav className="navbar-right-wrap ms-2 d-flex nav-top-wrap">
-					<QuickMenu langauge={props.data.lang} user={props?.user?.user?.admin?.user} refreshToken={props?.user?.user?.refreshToken}/>
+					<QuickMenu langauge={props.data.lang?.lang} dictionary={props.data.lang} user={props?.user?.user?.admin?.user} refreshToken={props?.user?.user?.refreshToken}/>
 				</Nav>
 			</div>
 		</Navbar>

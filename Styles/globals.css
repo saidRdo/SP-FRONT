@@ -87,3 +87,22 @@ body {
   border-radius: 5px;
   background-color: #808083;
 }
+
+::-webkit-scrollbar{
+  width:5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0097ff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #284ca7;
+}
+

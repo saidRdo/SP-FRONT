@@ -23,7 +23,7 @@ const Settings = () => {
             <PageHeading heading="General" />
 
             {/* Email Settings */}
-             <EmailSetting lang={dictionary} user={session?.user}/>
+            <EmailSetting lang={dictionary} user={session?.user}/>
 
             {/* Settings for Preferences */}
             <Preferences lang={dictionary}/>

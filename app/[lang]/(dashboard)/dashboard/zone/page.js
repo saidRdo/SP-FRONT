@@ -10,7 +10,7 @@ import { Dialog } from 'primereact/dialog';
 import {BiEdit, BiLinkExternal} from "react-icons/bi";
 import CreateZone from "@/sub-components/dashboard/zone/CreateZone";
 import {useSession} from "next-auth/react";
-import fetchZones from "@/data/Zones/ZoneDataList";
+import fetchZones from "@/Controller/Zone/ZoneDataList";
 import dynamic from "next/dynamic";
 
 
@@ -26,7 +26,7 @@ const Zone = () => {
 
     useEffect(() => {
         if (session?.user?.admin?.city?.id) {
-            fetchZones(session?.user?.admin?.city?.id)
+            fetchZones(session?.user?.admin?.city?.id,session?.user?.accessToken)
                 .then(zones => {
                     //console.log(zones)
                     if (zones) {
@@ -119,7 +119,7 @@ const Zone = () => {
                                 <BiLinkExternal className={"ml-2 mr-2"}/> Create new zone
                             </Button>
                             <Dialog header="Create new zone"  style={{width:"100vh"}} visible={scrollShow} maximizable onHide={() => setScrollShow(false)}>
-                                <CreateZone city={session?.user?.admin?.city} setzoneData={setZoneData}/>
+                                <CreateZone accesstoken={session?.user?.accessToken} city={session?.user?.admin?.city} setzoneData={setZoneData}/>
                             </Dialog>
                         </div>
                     </Card.Header>

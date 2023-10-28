@@ -6,11 +6,11 @@ import CreateAgent from "@/sub-components/dashboard/CreateAgent";
 import { MultiSelect } from 'primereact/multiselect';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import fetchZones from "@/data/Zones/ZoneDataList";
-import AgentOptions from "@/data/Agent/AgentOptions";
+import fetchZones from "@/Controller/Zone/ZoneDataList";
+import AgentOptions from "@/Controller/Agent/AgentOptions";
 
 
-function Assignment({agent,zones,from,cityID,SetAgentsData}){
+function Assignment({agent,zones,from,cityID,SetAgentsData,accessToken}){
     const [scrollShowZone, setScrollShowZone] = useState(false);
     const [selectedZone, setSelectedZone] = useState(zones?zones:0);
     const [selectedAgent, setSelectedAgent] = useState('');
@@ -20,7 +20,7 @@ function Assignment({agent,zones,from,cityID,SetAgentsData}){
 
 
     useEffect(() => {
-        fetchZones(cityID)
+        fetchZones(cityID,accessToken)
             .then(zones=>{
                 if (zones){
                     setloading(false)
@@ -30,7 +30,7 @@ function Assignment({agent,zones,from,cityID,SetAgentsData}){
                 }
             })
             .catch(error=>console.error("axios catch",error));
-        AgentOptions().then(resp=>setAgentOptions(resp)).catch(error=>console.error(error))
+        AgentOptions(accessToken).then(resp=>setAgentOptions(resp)).catch(error=>console.error(error))
     }, [cityID]);
 
     switch (from){

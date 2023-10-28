@@ -20,15 +20,7 @@
     "AppName": "SMART PARKING",
     "ProfileMenu": {
         "Profile": "Profil",
-        "Settings": "Paramètres",
         "Logout": "Se déconnecter"
-    },
-    "ProfileSection": {
-        "Username": "Nom d'utilisateur :",
-        "email": "Email :",
-        "Adresse" : "Adresse :",
-        "Phone": "Téléphone :",
-        "UserLang": "Langue :"
     },
     "AdminRoutes": {
         "Home": "Accueil",
@@ -66,16 +58,8 @@
             }
         },
         "ComponentEmailSetting": {
-            "Title": "Email",
-            "SubTitle": "Ajouter un nouvel e-mail au profil",
-            "ComponentEmail": {
-                "title": "Email",
-                "Form": {
-                    "LblNewEmail": "Nouvelle adresse e-mail",
-                    "NewEmailPlaceHolder": "Entrez votre adresse e-mail",
-                    "GestionErrors": {}
-                }
-            },
+            "Title": "Paramètres de mot de passe",
+            "SubTitle": "Changez votre mot de passe",
             "ComponentChangePassword": {
                 "title": "Changer de mot de passe",
                 "Form": {
@@ -118,8 +102,43 @@
         "city": "Ville",
         "zone": "Zone",
         "tabs": {
-            "dashboard": "Tableau de bord"
+            "dashboard": "Tableau de bord",
+            "claims": "Réclamations",
+            "statistics": "Statistiques"
         }
+    },
+    "profileHeader": {
+        "admin": "Admin",
+        "tabs": {
+            "overview": "Profil",
+            "zones": "Zones",
+            "agents": "Agents",
+            "parking": "Stationnement",
+            "guardian": "Gardien",
+            "capteur": "Capteur"
+        },
+        "editProfile": {
+            "button": "Modifier le profil",
+            "popUp": {
+                "subTitle": "Informations personnelles",
+                "fullName": "Nom complet",
+                "email": "E-mail",
+                "phone": "Téléphone",
+                "city": "Ville",
+                "role": "Rôle",
+                "saveChanges": "Enregistrer les modifications",
+                "profileUpdatedMsg": "Profil mis à jour avec succès"
+
+            }
+        }
+    },
+    "overviewTab": {
+        "title": "Informations personnelles",
+        "fullName": "Nom complet",
+        "email": "Email",
+        "phone": "Téléphone",
+        "city": "Ville",
+        "role": "Rôle"
     },
     "tables": {
         "statistics": {
@@ -156,7 +175,21 @@
                 "action": "Action"
             }
         }
-    }
+    },
+    "GesionErrors": {
+        "obligatoire": "Ce champ est Obligatoire",
+        "lenghtM4": "Ce champ doit contenir au moins 4 caractères",
+        "cinInValide": "Votre code invalide devrait ressembler à ceci : A12345 ",
+        "emailInValide": "Votre e-mail invalide devrait ressembler à ceci : example@example.com",
+        "passwordM8": "Le mot de passe doit comporter au moins 8 caractères",
+        "phoneInValide":  "Votre numéro n'est pas valide. Entrez un numéro à 10 chiffres",
+        "passwordNotmatched": "Le mot de passe et la confirmation ne correspondent pas",
+        "currentPasswordIncorrect": "Le mot de passe actuel est incorrect",
+        "passwordChangedSuccess": "Votre mot de passe a été mis à jour avec succès"
 
+
+
+
+    }
 
 }

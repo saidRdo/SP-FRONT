@@ -44,7 +44,7 @@ function DashboardLayout({children}) {
                         data={{
                             showMenu: showMenu,
                             SidebarToggleMenu: ToggleMenu,
-                            lang:dictionary.lang
+                            lang:dictionary
                         }}
                        user={session}
                     />

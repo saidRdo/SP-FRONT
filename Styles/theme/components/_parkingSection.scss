@@ -1,0 +1,66 @@
+.flex-container {
+  display: flex;
+  flex-wrap:wrap;
+  direction:ltr;
+}
+
+.cardparkingBody{
+  direction:ltr;
+  width: 200px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.carousel-item img{
+  width:250px;
+  height:150px;
+}
+/* Pagination Container */
+.paginationBttns {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+  margin: 20px 0 30px 0;
+  padding: 0;
+}
+
+/* Pagination Button Styles */
+.paginationBttns li {
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.paginationBttns li a {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.paginationBttns li a:hover {
+  background-color: #0097ff;
+  color:white;
+  transition-duration: 0.8s;
+}
+
+/* Previous and Next Button Styles */
+.previousBttn, .nextBttn {
+  font-weight: bold;
+}
+
+/* Disabled Button Styles */
+.paginationDisabled {
+  color: #ccc;
+}
+
+/* Active Page Styles */
+.paginationActive{
+  color: #ffffff;
+}
+.paginationActive a{
+  background-color: #0097ff;
+}
+

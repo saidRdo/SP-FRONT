@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import {BsCheckCircleFill} from "react-icons/bs";
 import {CreateZoneController} from "@/Controller/Zone/CreateZone";
 
-const CreateZone = ({city,setzoneData}) => {
+const CreateZone = ({city,setzoneData,accesstoken}) => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyBwqCCHiuZJJDAnxKiqWSDWzW5m8ty6QCc" // Add your API key
     });
@@ -39,7 +39,7 @@ const CreateZone = ({city,setzoneData}) => {
             setLoading(false)
             return document.getElementById('Errormap').textContent="This field is required"
         }
-        CreateZoneController(ZoneData).then(res=>{
+        CreateZoneController(ZoneData,accesstoken).then(res=>{
             //console.log(res)
             if(res?.data && res?.status===200){
                 setZoneData({

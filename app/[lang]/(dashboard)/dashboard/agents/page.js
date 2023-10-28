@@ -11,7 +11,7 @@ import Assignment from "@/sub-components/assignment/Assignment";
 import { Dialog } from 'primereact/dialog';
 import {BiEdit, BiLinkExternal} from "react-icons/bi";
 import {useSession} from "next-auth/react";
-import fetchAgent from "@/data/Agent/fetchAgents";
+import fetchAgent from "@/Controller/Agent/fetchAgents";
 import dynamic from "next/dynamic";
 
 const Agents = () => {
@@ -25,13 +25,17 @@ const Agents = () => {
     const [loading,setloading]=useState(true);
 
     useEffect(() => {
-        fetchAgent().then(data=>{
-            if (data){
-                setloading(false)
-                return SetAgentsData(data);
-            }
-        })
-    }, []);
+        if(session?.user.accessToken){
+            fetchAgent(session?.user.accessToken).then(data=>{
+                console.log(data)
+                if (data){
+                    setloading(false)
+                    return SetAgentsData(data);
+                }
+            })
+        }
+
+    }, [session?.user.accessToken]);
 
     function stringAvatar(name) {
         if(name.includes(' ')){
@@ -151,7 +155,7 @@ const Agents = () => {
                                     <BiLinkExternal className={"ml-2 mr-2"}/> Create new agent
                                 </Button>
                                 <Dialog header="Create new agent" style={{width:"100vh"}} visible={scrollShow} maximizable onHide={() => setScrollShow(false)}>
-                                    <CreateAgent city={session?.user?.admin?.city?.id} agentData={AgentsData} SetAgentsData={SetAgentsData}/>
+                                    <CreateAgent accesstoken={session?.user?.accessToken} city={session?.user?.admin?.city?.id} agentData={AgentsData} SetAgentsData={SetAgentsData}/>
                                 </Dialog>
                             </div>
                     </Card.Header>
@@ -162,7 +166,7 @@ const Agents = () => {
                             maximizable
                             onHide={() => setAssigmnetModal(false)}
                         >
-                            {selectedUser && <Assignment agent={selectedUser.username} zones={selectedUser.zonesId} from={"agent"} cityID={session?.user?.admin?.city?.id} />}
+                            {selectedUser && <Assignment accessToken={session?.user?.accessToken} agent={selectedUser.username} zones={selectedUser.zonesId} from={"agent"} cityID={session?.user?.admin?.city?.id} />}
                         </Dialog>
                     </div>
                     <Card.Body>

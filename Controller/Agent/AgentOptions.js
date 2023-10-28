@@ -1,8 +1,12 @@
 import Axios from "@/hooks/Axios";
 
-const AgentOptions = async () => {
+const AgentOptions = async (accessToken) => {
     try {
-        const agents = await Axios.get(`/agent`);
+        const agents = await Axios.get(`/agent`,{
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
         if (agents.data) {
             const options = agents.data.map(agnt=>{
                 return {value:agnt.id , label:agnt.user.username}

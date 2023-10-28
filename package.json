@@ -43,6 +43,7 @@
     "react-dropzone": "^14.2.3",
     "react-feather": "^2.0.10",
     "react-icons": "^4.11.0",
+    "react-paginate": "^8.2.0",
     "react-responsive": "^9.0.2",
     "sass": "^1.64.2",
     "sass-loader": "^13.3.2",

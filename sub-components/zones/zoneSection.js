@@ -1,21 +1,23 @@
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import {Spinner} from "react-bootstrap";
-import fetchZones from "@/data/Zones/ZoneDataList";
+import fetchZones from "@/Controller/Zone/ZoneDataList";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 
 const ZoneSection = (props) => {
     const [Options,setOptions]=useState([])
-    const defaultZoneSelected=1;
+    const [ZoneSelected,setZoneSelected]=useState(Options[0]);
     const {data:session}=useSession();
     const [loading,setLoading]=useState(true)
 
     useEffect(() => {
         if (session?.user?.admin?.city?.id){
-            fetchZones(session?.user?.admin?.city?.id)
+            fetchZones(session?.user?.admin?.city?.id,session?.user?.accessToken)
                 .then(zones=>{
                     if (zones){
                         setLoading(false)
@@ -31,23 +33,24 @@ const ZoneSection = (props) => {
     return (
         <div className={"d-flex align-items-center mb-1 mb-lg-0"}>
             <h4 className="mb-0 text-white">{`${props?.dictionary?.zone} : `}  </h4>
-            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
                 {
-                        loading ?
+                        loading && !Options?
                             <Spinner animation="border" role="status">
                                 <span className="visually-hidden">Loading...</span>
                             </Spinner>
                             :
-                    <Select
-                        labelId="demo-simple-select-standard-label"
-                        id="demo-simple-select-standard"
-                        defaultValue={defaultZoneSelected}
-                        className={"text-white bg-blue-400"}
-                    >
-                        {
-                            Options.map(item=><MenuItem value={item.value}>{item.label}</MenuItem> )
-                        }
-                    </Select>
+                            <Autocomplete
+                                onChange={(event, newValue) => {
+                                    setZoneSelected(newValue);
+                                    //console.log(newValue)
+                                }}
+                                inputValue={Options?.value}
+                                id="controllable-states-demo"
+                                options={Options}
+                                defaultValue={"zone A"}
+                                renderInput={(params) => <TextField key={...props.key} {...params} InputProps={{...params.InputProps, style: { color: 'white' } }} variant={"standard"}  />}
+                            />
                 }
             </FormControl>
         </div>

@@ -4,7 +4,7 @@ import {useState} from "react";
 import {CreateAgentController} from "@/Controller/Agent/CreateAgent";
 import {BsCheckCircleFill} from "react-icons/bs";
 
-const CreateAgent = ({city,SetAgentsData}) => {
+const CreateAgent = ({city,SetAgentsData,accesstoken}) => {
     const [user,setUser]=useState({
         code:"",
         username:"",
@@ -120,7 +120,7 @@ const CreateAgent = ({city,SetAgentsData}) => {
             roleId:2,
             description:`Agent ${user?.username}`,
             typeUser:"Agent"
-        }).then(res=>{
+        },accesstoken).then(res=>{
             //console.log(res)
             if(res?.data && res?.status===200){
                 setUser({

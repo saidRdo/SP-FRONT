@@ -6,6 +6,7 @@ import Claims from "@/sub-components/dashboard/Claims";
 import LineChart from "@/sub-components/dashboard/charts/LineChart";
 import BarChart from "@/sub-components/dashboard/charts/BarChart";
 import PieChart from "@/sub-components/dashboard/charts/PieChart";
+import dynamic from "next/dynamic";
 
 const DashboardTap  = (props) => {
 
@@ -66,12 +67,7 @@ const DashboardTap  = (props) => {
 
         {/* Table des Statistiques  */}
         <Statistics dictionary={props?.dictionary?.tables?.statistics}  />
-
-        {/* Table des réclamations  */}
-        <div className={"mb-4"}>
-            <Claims dictionary={props?.dictionary?.tables?.claims} />
-        </div>
     </React.Fragment>
     )
 }
-export default DashboardTap;
+export default dynamic(() => Promise.resolve(DashboardTap), { ssr: false });

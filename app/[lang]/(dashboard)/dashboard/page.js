@@ -11,6 +11,8 @@ import {ContentHeader} from "@/sub-components/dashboard/ContentHeader";
 import Link from "next/link";
 import DashboardTap from "@/sub-components/dashboard/Taps/DashboardTap";
 import {useSession} from "next-auth/react";
+import ClaimsTap from "@/sub-components/dashboard/Taps/ClaimsTap";
+import StatisticsTap from "@/sub-components/dashboard/Taps/StatisticsTap";
 
 
 const Home = () => {
@@ -45,13 +47,13 @@ const Home = () => {
                                 <Link className={`nav-link ${NextTap===2?"active":""}`} href="#" onClick={(event)=> {
                                     event.preventDefault();
                                     setNextTap(2)
-                                }}>Tab2</Link>
+                                }}>{dictionary?.contentHeader?.tabs?.claims}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link ${NextTap===3?"active":""}`} href="#" onClick={(event)=> {
                                     event.preventDefault();
                                     setNextTap(3)
-                                }}>Tab3</Link>
+                                }}>{dictionary?.contentHeader?.tabs?.statistics}</Link>
                             </li>
                         </ul>
                     </Col>
@@ -61,9 +63,9 @@ const Home = () => {
                         case 1:
                             return <DashboardTap dictionary={dictionary} />;
                         case 2:
-                            return <h1>Tab 2</h1>;
+                            return <ClaimsTap dictionary={dictionary} />;
                         case 3:
-                            return <h1>Tab 3</h1>
+                            return <StatisticsTap dictionary={dictionary} />;
                         default:
                             return null
                     }
