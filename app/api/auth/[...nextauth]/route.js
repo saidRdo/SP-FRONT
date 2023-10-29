@@ -19,7 +19,7 @@ export const authOptions = {
                     throw new Error('Invalid Credentials');
                 }
 
-                const res = await axios.post(`http://172.31.18.81:8001/api/v1/auth/login`,
+                const res = await axios.post(`http://localhost:8001/api/v1/auth/login`,
                     {
                         login: credentials?.email,
                         password: credentials?.password,
