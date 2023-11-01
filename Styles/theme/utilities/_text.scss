@@ -23,8 +23,6 @@ h4,
 }
 .lbl-password-copied{
     color: $success;
-    text-align: center;
-    margin-bottom: -10px;
     &:empty{
         display: none;
     }

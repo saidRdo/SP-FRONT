@@ -79,25 +79,22 @@ const CreateZone = ({city,setzoneData,accesstoken}) => {
 
     return (
             <Form>
-                <Row className={"mb-3"}>
+                <Row>
                     <Col md={12} xl={12}>
                         <Alert variant="success " className={`d-${AlertSeuccess}`}><BsCheckCircleFill size={25} className="me-1"  /> The Zone was added successfully</Alert>
                     </Col>
                 </Row>
-                <Row className="mb-3">
-                    <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="City">
-                        City
-                    </Form.Label>
-                    <Col md={12} xs={12} sm={12}>
+                <Row >
+                    <Col md={6} xs={6} sm={6}>
+                        <Form.Label className="col-form-label form-label" htmlFor="City">
+                            City
+                        </Form.Label>
                         <Form.Control type="text" value={city.name} id="City" disabled={true}/>
                     </Col>
-                </Row>
-                {/* row */}
-                <Row className="mb-3">
-                    <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="name">
-                        Name
-                    </Form.Label>
-                    <Col md={12} xs={12} sm={12}>
+                    <Col md={6} xs={6}>
+                        <Form.Label className="col-form-label form-label" htmlFor="name">
+                            Zone Name
+                        </Form.Label>
                         <Form.Control type="text" value={ZoneData.zone.name} placeholder="Zone name" id="name" required
                                       onKeyUp={handleRefreshErrors}
                                       onChange={(e) => {
@@ -115,21 +112,22 @@ const CreateZone = ({city,setzoneData,accesstoken}) => {
                         <p className={"text-sm text-red-700 lblError"} id={"ErrorzoneName"} ></p>
                     </Col>
                 </Row>
+                
                 {/* row */}
-                <Row className="mb-3">
-                    <Form.Label className="col-sm-4 col-form-label form-label" htmlFor="name">
+                <Row >
+                    <Form.Label className="col-form-label form-label" htmlFor="name">
                         Location
                     </Form.Label>
                 </Row>
-                <Row className={"mb-3"}>
+                <Row>
                     <Col md={12} xs={12} sm={12}>
                         <p className={"text-sm text-red-700 lblError"} id={"Errormap"} ></p>
                         {isLoaded&&<Map setZoneData={setZoneData}/>}
                     </Col>
                 </Row>
                 {/*  className={`mt-4  ${lang?.lang==="ar"?"offset-rtl":''}`}   */}
-                <Col md={{ offset: 0, span: 12 }} xs={12} className={`mt-4`}>
-                    <Button variant="primary" className={"text-white"} disabled={loading} onClick={(e)=>handleSubmit(e)}>
+                <Col md={12} xs={12} className={`mt-4`}>
+                    <Button variant="primary" className={"text-white w-100"} disabled={loading} onClick={(e)=>handleSubmit(e)}>
                         Create zone
                     </Button>
                 </Col>

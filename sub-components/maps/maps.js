@@ -72,7 +72,7 @@ function Map({setZoneData}) {
     return (
         centerLocation?
             <GoogleMap
-                mapContainerStyle={{ width: '100%', height: '400px' }}
+                mapContainerStyle={{ width: '100%', height: '300px' }}
                 center={centerLocation}
                 zoom={Zoom}
                 options={MapOptions}

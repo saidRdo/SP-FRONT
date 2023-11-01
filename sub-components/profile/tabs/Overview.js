@@ -1,7 +1,7 @@
-import {AboutMe} from "@/sub-components";
 import EmailSetting from "../../settings/EmailSetting";
 import {Col} from "react-bootstrap";
 import dynamic from "next/dynamic";
+import AboutMe from "@/sub-components/profile/AboutMe";
 
 const Overview = ({lang,user,updateSession,session}) => {
     return (
